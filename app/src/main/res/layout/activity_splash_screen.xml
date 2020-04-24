@@ -5,17 +5,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/bg_color"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#282828"
     tools:context=".SplashScreen">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <View
+            android:id="@+id/first"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="37dp"
+            android:background="#ff0000" />
+
+        <View
+            android:id="@+id/second"
+            android:layout_width="20dp"
+            android:layout_height="120dp"
+            android:background="#00ff00" />
+
+        <View
+
+            android:id="@+id/thrird"
+            android:layout_width="20dp"
+            android:layout_height="140dp"
+            android:background="#0000ff" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:contentDescription="GOTO"
-        android:src="@drawable/imnitian"
-        />
+        android:contentDescription="@string/logo_desc"
+        android:src="@drawable/imnitian" />
+
+    </RelativeLayout>
 
 </LinearLayout>
