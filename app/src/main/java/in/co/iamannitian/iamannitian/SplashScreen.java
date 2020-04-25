@@ -1,7 +1,7 @@
 /*
 * @Project "I Am An Nitian"
 * @Date "16 April 2020"
-*dhdvvfdfhb
+* @Animated Splash Screen Created
  */
 
 package in.co.iamannitian.iamannitian;
