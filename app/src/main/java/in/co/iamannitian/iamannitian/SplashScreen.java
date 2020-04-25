@@ -1,19 +1,18 @@
 /*
 * @Project "I Am An Nitian"
 * @Date "16 April 2020"
-* @Added latest Desgin Support
  */
 
 package in.co.iamannitian.iamannitian;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public static final int SPLASH_TIME_OUT=4000;
+    public static final int SPLASH_TIME_OUT=250;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
