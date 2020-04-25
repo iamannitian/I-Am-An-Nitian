@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">I Am An Nitian</string>
+    <string name="logo_desc">Logo</string>
+    <string name="splash_msg">Connecting Nitians</string>
 </resources>

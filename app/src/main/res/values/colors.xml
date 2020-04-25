@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--============ Colors Used in Splash Screen ====================-->
+    <color name="bg_color">#088DE6</color>
+    <color name="main">#F44336</color>
+    <color name="first">#673AB7</color>
+    <color name="second">#ffffff</color>
+    <color name="third">#00ff00</color>
+    <color name="fourth">#FFC107</color>
+    <color name="fifth">#C543E3</color>
+    <color name="splash_msg">#ECECEC</color>
+
 </resources>
