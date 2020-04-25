@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- ===============    Hiding toolbar only   ================= -->
+    <style name="HideToolBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
     <!-- ===============    Hiding toolbar and status bar   ================= -->
     <style name="HideAppBar" parent="Theme.AppCompat.Light.NoActionBar">
