@@ -117,10 +117,10 @@
                     android:scaleType="centerInside"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgWebpage"
-                    android:layout_width="35dp"
+                    android:layout_width="28dp"
                     android:layout_height="35dp"
                     android:contentDescription="Web Page Link"
-                    android:src="@drawable/ic_google" />
+                    android:src="@drawable/ic_website" />
 
             </LinearLayout>
 
