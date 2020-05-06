@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         textView            = findViewById(R.id.randomtext);
         //setup toolbar for the activity
         setUpToolBar();
-        //setup menu
+        //setup menu for navigation
         setUpMenu();
         //setup imagelinks
         ImageButton[] imageList = new ImageButton[]{img1,img2,img3,img4};
@@ -100,19 +100,13 @@ public class MainActivity extends AppCompatActivity {
                     case 0 :    //For Home
                         textView.setText("Home Page");
                         break;
-                    case 1 :    //For Blogs
-                        textView.setText("Blog Page");
-                        break;
-                    case 2 :    //For Posts
-                        textView.setText("Post Page");
-                        break;
-                    case 3 :    //For My Preferences
+                    case 1 :    //For My Preferences
                         textView.setText("My Preferences");
                         break;
-                    case 4 :    //For My Blogs
+                    case 2 :    //For My Blogs
                         textView.setText("My Blogs");
                         break;
-                    case 5 :    //For More
+                    case 3 :    //For More
                         ImageView img = v.findViewById(R.id.imgParent);
                         float angle = img.getRotation();
                         angle += 180;
@@ -120,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         img.setRotation(angle);
                         break;
                 }
-                if(!(groupPosition ==5)) {
+                if(groupPosition != 3) {
                     drawerLayout.closeDrawers();
                 }
                 return false;
@@ -134,22 +128,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
                 //if More is clicked
-                if(groupPosition == 5) {
+                if(groupPosition == 3) {
                     switch (childPosition) {
                         case 0 :    //For FeedBack
                             textView.setText("FeedBack Page");
                             break;
-                        case 1 :    //For About Us
-                            textView.setText("About Us");
+                        case 1 :    //For Help & Support
+                            textView.setText("Help and Support Forum");
                             break;
-                        case 2 :    //For Contact Us
-                            textView.setText("Contact Us");
-                            break;
-                        case 3 :    //For Share App
+                        case 2 :    //For Share App
                             textView.setText("Share App Prompt");
-                            break;
-                        case 4 :    //For Log Out
-                            textView.setText("Sending to logout Page");
                             break;
                     }
                 }
@@ -163,32 +151,26 @@ public class MainActivity extends AppCompatActivity {
         menuItems    = new ArrayList<>();
         //Indices
         menuItems.add("Home");              //0
-        menuItems.add("Blogs");             //1
-        menuItems.add("Posts");             //2
-        menuItems.add("My Preferences");    //3
-        menuItems.add("My Blogs");          //4
-        menuItems.add("More");              //5
+        menuItems.add("My Preferences");    //1
+        menuItems.add("My Blogs");          //2
+        menuItems.add("More");              //3
 
         menuIcons    = new ArrayList<>();
         //Indices
         menuIcons.add(R.drawable.ic_home);          //0
-        menuIcons.add(R.drawable.ic_blogs);         //1
-        menuIcons.add(R.drawable.ic_posts);         //2
-        menuIcons.add(R.drawable.ic_preferences);   //3
-        menuIcons.add(R.drawable.ic_myblogs);       //4
-        menuIcons.add(R.drawable.ic_dropdown);      //5
+        menuIcons.add(R.drawable.ic_preferences);   //1
+        menuIcons.add(R.drawable.ic_myblogs);       //2
+        menuIcons.add(R.drawable.ic_dropdown);      //3
 
         subMenuItems = new HashMap<>();
 
         List<String> forMore = new ArrayList<>();
         forMore.add("\u00B7 Give Feedback");   //0
-        forMore.add("\u00B7 About Us");        //1
-        forMore.add("\u00B7 Contact Us");      //2
-        forMore.add("\u00B7 Share App");       //3
-        forMore.add("\u00B7 Log Out");         //4
+        forMore.add("\u00B7 Help & Support");  //1
+        forMore.add("\u00B7 Share App");       //2
 
         //Adding sub menu items for "More" Item :
-        subMenuItems.put(menuItems.get(5),forMore);
+        subMenuItems.put(menuItems.get(3),forMore);
 
         //adding adapter for menu
         menuAdapter = new NavMenuAdapter(this,menuItems,subMenuItems,menuIcons);
