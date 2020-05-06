@@ -1,9 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+            <TextView
+                android:text="Main Page"
+                android:gravity="center"
+                android:id="@+id/randomtext"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="50dp"
+        android:background="@color/colorPrimaryDark"
+        app:headerLayout="@layout/welcome_drawer_header">
+
+        <RelativeLayout
+            android:id="@+id/relLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="230dp">
+
+            <ExpandableListView
+                android:divider="@null"
+                android:groupIndicator="@null"
+                android:layout_marginBottom="45dp"
+                android:id="@+id/expandedMenu"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+
+            <LinearLayout
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/socialLayout"
+                android:weightSum="4"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgInsta"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="Insta Link"
+                    android:src="@drawable/ic_insta" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgFB"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="FB Link"
+                    android:src="@drawable/ic_fb" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgYoutube"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="YouTube Link"
+                    android:src="@drawable/ic_youtube" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgWebpage"
+                    android:layout_width="28dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="Web Page Link"
+                    android:src="@drawable/ic_website" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
