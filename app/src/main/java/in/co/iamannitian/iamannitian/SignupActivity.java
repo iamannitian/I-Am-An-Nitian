@@ -1,36 +1,28 @@
 package in.co.iamannitian.iamannitian;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class SignupScreen extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     public static final String emailregex="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_screen);
+        setContentView(R.layout.activity_signup);
 
-        final EditText username= (EditText)findViewById(R.id.username);
-        final EditText email= (EditText)findViewById(R.id.email);
-        final EditText phone= (EditText)findViewById(R.id.phone);
-        final EditText pass= (EditText)findViewById(R.id.pass);
+        final EditText username= findViewById(R.id.username);
+        final EditText email= findViewById(R.id.email);
+        final EditText phone= findViewById(R.id.phone);
+        final EditText pass= findViewById(R.id.pass);
 
-
-
-
-
-        Button signbtn=(Button)findViewById(R.id.signup);
+        Button signbtn= findViewById(R.id.signup);
 
         signbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +55,8 @@ public class SignupScreen extends AppCompatActivity {
                     phone.setError("enter valid phone number");
                 }
 
-
-
                 else {
-                    Intent intent4= new Intent(SignupScreen.this,logindetails.class);
+                    Intent intent4= new Intent(SignupActivity.this,MainActivity.class);
                     startActivity(intent4);}
 
             }
@@ -77,9 +67,4 @@ public class SignupScreen extends AppCompatActivity {
 
         });
     }
-
-
-
-
 }
-
