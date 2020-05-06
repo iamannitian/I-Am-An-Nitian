@@ -29,12 +29,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 email.setError(null);
                 password.setError(null);
-                if(email.getText().toString().isEmpty()){
+                if(email.getText().toString().trim().isEmpty()){
                     email.setError("Required");
-                } else if(password.getText().toString().isEmpty()){
+                    email.requestFocus();
+                } else if(password.getText().toString().trim().isEmpty()){
                     password.setError("Required");
+                    password.requestFocus();
                 } else if(!email.getText().toString().matches(emailregex)){
                     email.setError("enter valid email");
+                    email.requestFocus();
                 } else {
                     Intent intent2= new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent2);

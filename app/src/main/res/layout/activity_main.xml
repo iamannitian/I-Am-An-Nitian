@@ -59,7 +59,7 @@
             android:id="@+id/relLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="210dp">
+            android:layout_marginTop="230dp">
 
             <ExpandableListView
                 android:divider="@null"
@@ -84,7 +84,7 @@
 
                 <ImageButton
                     android:layout_weight="1"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgInsta"
                     android:layout_width="35dp"
@@ -94,7 +94,7 @@
 
                 <ImageButton
                     android:layout_weight="1"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgFB"
                     android:layout_width="35dp"
@@ -104,7 +104,7 @@
 
                 <ImageButton
                     android:layout_weight="1"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgYoutube"
                     android:layout_width="35dp"
@@ -114,7 +114,7 @@
 
                 <ImageButton
                     android:layout_weight="1"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgWebpage"
                     android:layout_width="28dp"
@@ -129,4 +129,3 @@
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
-
