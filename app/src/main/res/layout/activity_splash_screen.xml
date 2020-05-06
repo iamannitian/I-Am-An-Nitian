@@ -49,7 +49,8 @@
             android:layout_width="15dp"
             android:layout_height="160dp"
             android:background="@color/fourth"
-          />
+            />
+
         <View
             android:layout_toEndOf="@id/fourth"
             android:id="@+id/fifth"
