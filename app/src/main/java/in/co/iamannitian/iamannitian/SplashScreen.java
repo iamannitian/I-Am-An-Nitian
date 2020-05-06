@@ -1,11 +1,15 @@
-package in.co.iamannitian.iamannitian;
+/*
+* @Project "I Am An Nitian"
+* @Date "16 April 2020"
+* @Animated Splash Screen Created
+* @Testing VCS
+ */
 
+package in.co.iamannitian.iamannitian;
 import android.content.Intent;
 import android.os.Handler;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,9 +18,14 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 
+
+
 public class SplashScreen extends AppCompatActivity {
 
-    public static final int SPLASH_TIME_OUT=3000;
+    public static final int SPLASH_TIME_OUT=4000;
+
+public class SplashScreen extends AppCompatActivity {
+
     //Animation
     private Animation top_animation, bottom_animation, middle_animation;
     private View first, second, third, fourth,  fifth, main;
@@ -57,7 +66,6 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run()
             {
-
                 Intent intent= new Intent(SplashScreen.this, loginscreen.class);
                 startActivity(intent);
                 finish();

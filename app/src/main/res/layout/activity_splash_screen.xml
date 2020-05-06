@@ -50,6 +50,7 @@
             android:layout_height="160dp"
             android:background="@color/fourth"
             />
+
         <View
             android:layout_toEndOf="@id/fourth"
             android:id="@+id/fifth"
@@ -57,7 +58,7 @@
             android:layout_height="130dp"
             android:background="@color/fifth"
             android:layout_marginEnd="15dp"
-            />
+           />
 
     </RelativeLayout>
 
