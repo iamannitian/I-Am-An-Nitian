@@ -24,13 +24,12 @@ public class SplashScreen extends AppCompatActivity {
 
     public static final int SPLASH_TIME_OUT=4000;
 
-public class SplashScreen extends AppCompatActivity {
-
     //Animation
     private Animation top_animation, bottom_animation, middle_animation;
-    private View first, second, third, fourth,  fifth, main;
+    private View first, second, third, fourth, fifth, main;
     private TextView splash_msg;
     ImageView logo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,15 +61,14 @@ public class SplashScreen extends AppCompatActivity {
         splash_msg.setAnimation(bottom_animation);
 
 
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void run()
-            {
-                Intent intent= new Intent(SplashScreen.this, loginscreen.class);
+            public void run() {
+                Intent intent = new Intent(SplashScreen.this, loginscreen.class);
                 startActivity(intent);
                 finish();
             }
-        },SPLASH_TIME_OUT);
+        }, SPLASH_TIME_OUT);
 
     }
 }
