@@ -47,8 +47,8 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/myinput"
-        android:drawableStart="@drawable/passicon_small"
-        android:drawablePadding="1dp"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="8dp"
         android:fontFamily="@font/aladin"
         android:hint="Password"
         android:paddingHorizontal="15dp" />

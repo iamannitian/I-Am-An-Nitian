@@ -30,7 +30,7 @@
         android:textSize="16sp"
         android:id="@+id/username"
         android:hint="User Name"
-        android:drawableStart="@drawable/usericon_small"
+        android:drawableStart="@drawable/user"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
@@ -61,14 +61,14 @@
         android:textSize="16sp"
         android:id="@+id/pass"
         android:hint="Password"
-        android:drawableStart="@drawable/passicon_small"
+        android:drawableStart="@drawable/lock"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/myinput"
-        android:drawablePadding="1dp"
+        android:drawablePadding="8dp"
         android:layout_marginTop="20dp"/>
 
     <Button
