@@ -1,9 +1,7 @@
 /*
 * @Project "I Am An Nitian"
 * @Date "16 April 2020"
-* @Animated Splash Screen Created
-* @Testing VCS
- */
+*/
 
 package in.co.iamannitian.iamannitian;
 import android.content.Intent;
@@ -15,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.w3c.dom.Text;
 
 
 
@@ -63,8 +60,9 @@ public class SplashScreen extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
             @Override
-            public void run() {
-                Intent intent = new Intent(SplashScreen.this, loginscreen.class);
+            public void run()
+            {
+                Intent intent= new Intent(SplashScreen.this, LoginOrSignupActivity.class);
                 startActivity(intent);
                 finish();
             }
