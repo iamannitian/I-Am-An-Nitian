@@ -6,14 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD:app/src/main/java/in/co/iamannitian/iamannitian/loginscreen.java
-
-public class loginscreen extends AppCompatActivity {
-
-    Button btn1;
-=======
->>>>>>> e3adb12d007f531d606a462e7e187cc4f9387902:app/src/main/java/in/co/iamannitian/iamannitian/LoginOrSignupActivity.java
-
 public class LoginOrSignupActivity extends AppCompatActivity {
 
     Button btn1;
