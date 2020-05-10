@@ -26,6 +26,7 @@
         />
 
     <EditText
+        android:digits="@string/user_name_validation"
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
         android:id="@+id/username"
@@ -59,7 +60,7 @@
     <EditText
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
-        android:id="@+id/pass"
+        android:id="@+id/password"
         android:hint="Password"
         android:drawableStart="@drawable/lock"
         android:layout_width="match_parent"
@@ -69,11 +70,12 @@
         android:layout_marginRight="24dp"
         android:background="@drawable/myinput"
         android:drawablePadding="8dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        />
 
     <Button
         android:fontFamily="@font/aladin"
-        android:id="@+id/signup"
+        android:id="@+id/click_to_signup"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/mybutton"
