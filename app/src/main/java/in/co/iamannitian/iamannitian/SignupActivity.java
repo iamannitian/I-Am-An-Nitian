@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,11 +25,10 @@ import java.util.regex.Pattern;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 public class SignupActivity extends AppCompatActivity {
 
     private EditText email, username, password;
-    private Button click_to_signup;
+    private Button click_to_sign_up;
     private TextView go_to_login;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -40,17 +40,11 @@ public class SignupActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         email    = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        click_to_signup = findViewById(R.id.click_to_signup);
+        click_to_sign_up = findViewById(R.id.click_to_sign_up);
         go_to_login = findViewById(R.id.go_to_login);
 
 
-        //setting auto full property
-//        username.setAutofillHints(View.AUTOFILL_HINT_USERNAME);
-//        email.setAutofillHints(View.AUTOFILL_HINT_EMAIL_ADDRESS);
-  //      password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
-
-
-        click_to_signup.setOnClickListener(new View.OnClickListener() {
+        click_to_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,8 +60,27 @@ public class SignupActivity extends AppCompatActivity {
 
                 //checking user name
 
-                if(user_name.isEmpty()){
-                    username.setError("");
+                if(!user_name.isEmpty())
+                {
+                    //if not empty then check whether it is valid
+                    //name should not be less than 3 in length
+                    String name_regex =
+                            "[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}|" +
+                            "[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}|" +
+                            "[a-zA-Z]{3,}";
+                    Pattern p = Pattern.compile(name_regex);
+                    Matcher m = p.matcher(user_name);
+                    if(!m.matches())
+                    {
+                        username.requestFocus();
+                        username.setError("invalid name");
+                        return;
+                    }
+                }
+                else
+                    {
+                    username.requestFocus();
+                    username.setError("required");
                     return;
                 }
 
@@ -87,6 +100,7 @@ public class SignupActivity extends AppCompatActivity {
                     Matcher m = p.matcher(user_email);
                     if(!m.matches()) //if email is invalid
                     {
+                       // email.requestFocus();
                         email.setError("invalid email");
                         return;
                     }
@@ -94,7 +108,8 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    email.setError("");
+                    email.requestFocus();
+                    email.setError("required");
                     return;
                 }
 
@@ -104,13 +119,15 @@ public class SignupActivity extends AppCompatActivity {
                     //if not empty then check password length
                     if(user_password.length() < 6)
                     {
-                        password.setError("password is too sort");
+                        password.requestFocus();
+                        password.setError("password too sort");
                         return;
                     }
                 }
                 else
                 {
-                    password.setError("");
+                    password.requestFocus();
+                    password.setError("required");
                     return;
                 }
 
@@ -120,9 +137,7 @@ public class SignupActivity extends AppCompatActivity {
 
             }
 
-
         });
-
 
 
         //go to login activity
@@ -138,7 +153,7 @@ public class SignupActivity extends AppCompatActivity {
 
   private void proceedToSignup(final String user_name,final String user_email,final String user_password)
     {
-        String url = "https://www.iamannitian.co.in/imn_app/signup.php";
+        String url = "http://blog.iamannitian.co.in/signup.php";
         StringRequest sr = new StringRequest(1, url,
                 new Response.Listener<String>() {
                     @Override
@@ -149,11 +164,12 @@ public class SignupActivity extends AppCompatActivity {
                             email.setText("");
                             password.setText("");
                             username.setText("");
-                            Toast.makeText(SignupActivity.this,"Signup Suuccessful!", Toast.LENGTH_LONG).show();
+
+                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
                         }
                       else
                         {
-                            Toast.makeText(SignupActivity.this,"Signup Failed1", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignupActivity.this,"Sign Up Failed!", Toast.LENGTH_LONG).show();
                         }
                     }
                 }, new Response.ErrorListener() { //error

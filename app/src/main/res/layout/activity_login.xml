@@ -54,7 +54,7 @@
         android:paddingHorizontal="15dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -67,7 +67,7 @@
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/loginbtn"
+        android:id="@+id/click_to_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="24dp"
@@ -89,7 +89,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/go_to_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

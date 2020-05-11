@@ -26,7 +26,6 @@
         />
 
     <EditText
-        android:digits="@string/user_name_validation"
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
         android:id="@+id/username"
@@ -46,12 +45,12 @@
         android:textSize="16sp"
         android:id="@+id/email"
         android:hint="Email"
-        android:drawableStart="@drawable/mailicon_small"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
+        android:drawableStart="@drawable/mailicon_small"
         android:drawablePadding="9dp"
         android:background="@drawable/myinput"
         android:layout_marginTop="20dp"/>
@@ -75,7 +74,7 @@
 
     <Button
         android:fontFamily="@font/aladin"
-        android:id="@+id/click_to_signup"
+        android:id="@+id/click_to_sign_up"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/mybutton"

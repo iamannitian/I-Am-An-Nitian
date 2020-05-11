@@ -5,8 +5,4 @@
     <string name="close_drawer">Close Drawer</string>
     <string name="splash_msg">Connecting Nitians</string>
 
-    <!--======== User name validation string =========-->
-    <string name="user_name_validation">
-        abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWX
-    </string>
 </resources>
