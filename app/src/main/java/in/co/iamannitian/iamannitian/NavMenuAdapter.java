@@ -71,7 +71,8 @@ public class NavMenuAdapter extends BaseExpandableListAdapter {
         String item = (String) getGroup(groupPosition);
         Integer itemImage = menuIcons.get(groupPosition);
 
-        if(convertView == null) {
+        if(convertView == null)
+        {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.nav_list_parent,null);
         }

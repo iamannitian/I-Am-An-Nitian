@@ -1,11 +1,13 @@
 package in.co.iamannitian.iamannitian;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +33,8 @@ public class SignupActivity extends AppCompatActivity {
     private Button click_to_sign_up;
     private TextView go_to_login;
 
+    private ProgressDialog progressDialog;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,9 @@ public class SignupActivity extends AppCompatActivity {
         click_to_sign_up = findViewById(R.id.click_to_sign_up);
         go_to_login = findViewById(R.id.go_to_login);
 
+        //initializing progress dialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false); //prevent disappearing
 
         click_to_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +79,7 @@ public class SignupActivity extends AppCompatActivity {
                     Matcher m = p.matcher(user_name);
                     if(!m.matches())
                     {
+
                         username.requestFocus();
                         username.setError("invalid name");
                         return;
@@ -79,6 +87,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else
                     {
+
                     username.requestFocus();
                     username.setError("required");
                     return;
@@ -100,7 +109,8 @@ public class SignupActivity extends AppCompatActivity {
                     Matcher m = p.matcher(user_email);
                     if(!m.matches()) //if email is invalid
                     {
-                       // email.requestFocus();
+
+                        email.requestFocus();
                         email.setError("invalid email");
                         return;
                     }
@@ -108,6 +118,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else
                 {
+
                     email.requestFocus();
                     email.setError("required");
                     return;
@@ -119,6 +130,7 @@ public class SignupActivity extends AppCompatActivity {
                     //if not empty then check password length
                     if(user_password.length() < 6)
                     {
+
                         password.requestFocus();
                         password.setError("password too sort");
                         return;
@@ -144,8 +156,9 @@ public class SignupActivity extends AppCompatActivity {
         go_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-                finish();
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
+                startActivity(intent);
             }
         });
 
@@ -153,29 +166,65 @@ public class SignupActivity extends AppCompatActivity {
 
   private void proceedToSignup(final String user_name,final String user_email,final String user_password)
     {
+        // show progress bar first
+        progressDialog.setMessage("Processing....");
+        progressDialog.show();
+        // disable user interaction when progress dialog appears
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
         String url = "http://blog.iamannitian.co.in/signup.php";
         StringRequest sr = new StringRequest(1, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        if(response.equals("1"))
+                          String response_array[] = response.split(",");
+
+                        if(response_array[0].equals("1"))
                         {
                             email.setText("");
                             password.setText("");
                             username.setText("");
 
-                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                            //dismiss the progress dialog when sign up successful
+                            progressDialog.dismiss();
+
+                            /*=========================== shared preferences saving user data started ============================*/
+                            SharedPreferences sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("userId",response_array[1]);
+                            editor.putString("userName", response_array[2]);
+                            editor.putString("userEmail",response_array[3]);
+                            editor.apply();
+                            /*=========================== shared preferences saving user data finished ============================*/
+
+                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
+                            startActivity(intent);
+
                         }
-                      else
+                        else if(response_array[0].equals("2"))
                         {
-                            Toast.makeText(SignupActivity.this,"Sign Up Failed!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignupActivity.this,
+                                    "The email is already taken", Toast.LENGTH_LONG).show();
                         }
+                       else
+                        {
+                            progressDialog.dismiss();
+                            //on dialog dismiss back to interaction mode
+                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                            Toast.makeText(SignupActivity.this,"failed to sign up!", Toast.LENGTH_LONG).show();
+                        }
+
+
                     }
                 }, new Response.ErrorListener() { //error
             @Override
-            public void onErrorResponse(VolleyError error) {
-              //if error occurs
+            public void onErrorResponse(VolleyError error)
+            {
+                progressDialog.dismiss();
+                //on dialog dismiss back to interaction mode
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
             }
         }){
             @Override
@@ -184,6 +233,7 @@ public class SignupActivity extends AppCompatActivity {
                 map.put("nameKey", user_name);
                 map.put("emailKey", user_email);
                 map.put("passwordKey", user_password);
+                map.put("codeKey", "J6T32A-Pubs7/=H~".trim());
                 return map;
             }
         };

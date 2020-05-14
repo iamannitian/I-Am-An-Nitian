@@ -42,6 +42,31 @@
                 android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:fontFamily="@font/aladin"
+                android:id="@+id/test_user"
+                android:text="Hello User"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:textAlignment="center"
+                android:layout_marginTop="200dp"
+                />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="300dp"
+                android:textColor="@color/white"
+                android:background="@drawable/mybutton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Logout"
+                />
+
         </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -127,5 +152,6 @@
         </RelativeLayout>
 
     </com.google.android.material.navigation.NavigationView>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -9,10 +9,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
@@ -31,6 +33,11 @@ import java.util.Objects;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button logout;
+    private TextView test_user;
+    private SharedPreferences sharedPreferences;
+
 
     //For Nav-Drawer
     DrawerLayout drawerLayout;
@@ -73,6 +80,28 @@ public class MainActivity extends AppCompatActivity {
         img3                = findViewById(R.id.imgYoutube);
         img4                = findViewById(R.id.imgWebpage);
         textView            = findViewById(R.id.randomtext);
+
+        //getting shared preferences
+        sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
+        String userName = sharedPreferences.getString("userName","");
+
+
+       logout = findViewById(R.id.logout);
+       test_user = findViewById(R.id.test_user);
+
+       test_user.setText("Hello, "+ userName.split("\\s")[0]);
+
+       logout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               sharedPreferences.edit().clear().apply();
+               Intent intent = new Intent(MainActivity.this, LoginOrSignupActivity.class);
+               intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
+               startActivity(intent);
+           }
+       });
+
+
         //setup toolbar for the activity
         setUpToolBar();
         //setup menu for navigation
