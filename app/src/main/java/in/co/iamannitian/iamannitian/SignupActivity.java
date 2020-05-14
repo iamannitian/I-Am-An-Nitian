@@ -62,32 +62,13 @@ public class SignupActivity extends AppCompatActivity {
 
                 //getting credentials on click the sign up button
                 String user_name = username.getText().toString().trim();
-                String user_email = email.getText().toString().trim();
-                String user_password = password.getText().toString().trim();
+                String user_email = email.getText().toString().trim().replaceAll("\\s+","");
+                String user_password = password.getText().toString().trim().replaceAll("\\s+","");
 
                 //checking user name
 
-                if(!user_name.isEmpty())
+                if(user_name.isEmpty())
                 {
-                    //if not empty then check whether it is valid
-                    //name should not be less than 3 in length
-                    String name_regex =
-                            "[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}|" +
-                            "[a-zA-Z]{3,}\\s{1}[a-zA-Z]{3,}|" +
-                            "[a-zA-Z]{3,}";
-                    Pattern p = Pattern.compile(name_regex);
-                    Matcher m = p.matcher(user_name);
-                    if(!m.matches())
-                    {
-
-                        username.requestFocus();
-                        username.setError("invalid name");
-                        return;
-                    }
-                }
-                else
-                    {
-
                     username.requestFocus();
                     username.setError("required");
                     return;
@@ -96,29 +77,8 @@ public class SignupActivity extends AppCompatActivity {
 
                 //checking user email
 
-                if(!user_email.isEmpty())
+                if(user_email.isEmpty())
                 {
-                   //if not empty then check whether valid or not
-                    final String email_regex =
-                            "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+" +
-                            "@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?" +
-                            "(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]" +
-                            "{0,61}[a-zA-Z0-9])?)*$";
-
-                    Pattern p = Pattern.compile(email_regex);
-                    Matcher m = p.matcher(user_email);
-                    if(!m.matches()) //if email is invalid
-                    {
-
-                        email.requestFocus();
-                        email.setError("invalid email");
-                        return;
-                    }
-
-                }
-                else
-                {
-
                     email.requestFocus();
                     email.setError("required");
                     return;
@@ -126,17 +86,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 //checking user password
 
-                if(!user_password.isEmpty()){
-                    //if not empty then check password length
-                    if(user_password.length() < 6)
-                    {
-
-                        password.requestFocus();
-                        password.setError("password too sort");
-                        return;
-                    }
-                }
-                else
+                if(user_password.isEmpty())
                 {
                     password.requestFocus();
                     password.setError("required");
@@ -182,9 +132,6 @@ public class SignupActivity extends AppCompatActivity {
 
                         if(response_array[0].equals("1"))
                         {
-                            email.setText("");
-                            password.setText("");
-                            username.setText("");
 
                             //dismiss the progress dialog when sign up successful
                             progressDialog.dismiss();
@@ -203,17 +150,15 @@ public class SignupActivity extends AppCompatActivity {
                             startActivity(intent);
 
                         }
-                        else if(response_array[0].equals("2"))
-                        {
-                            Toast.makeText(SignupActivity.this,
-                                    "The email is already taken", Toast.LENGTH_LONG).show();
-                        }
-                       else
+                        else if(response_array[0].equals("0"))
                         {
                             progressDialog.dismiss();
                             //on dialog dismiss back to interaction mode
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            Toast.makeText(SignupActivity.this,"failed to sign up!", Toast.LENGTH_LONG).show();
+
+                            Toast.makeText(SignupActivity.this,
+                                    response_array[1], Toast.LENGTH_LONG).show();
+
                         }
 
 

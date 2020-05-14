@@ -63,32 +63,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 //getting credentials on click the login button
 
-                String user_email = email.getText().toString().trim();
-                String user_password = password.getText().toString().trim();
+                String user_email = email.getText().toString().trim().replaceAll("\\s+","");
+                String user_password = password.getText().toString().trim().replaceAll("\\s+","");
 
 
                 //checking user email
 
-                if (!user_email.isEmpty()) {
-                    //if not empty then check whether valid or not
-                    final String email_regex =
-                            "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+" +
-                                    "@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?" +
-                                    "(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]" +
-                                    "{0,61}[a-zA-Z0-9])?)*$";
-
-                    Pattern p = Pattern.compile(email_regex);
-                    Matcher m = p.matcher(user_email);
-                    if (!m.matches()) //if email is invalid
-                    {
-                        email.requestFocus();
-                        email.setError("invalid email");
-                        return;
-                    }
-
-                }
-                else {
-
+                if (user_email.isEmpty())
+                {
                     email.requestFocus();
                     email.setError("required");
                     return;
@@ -102,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                     password.setError("required");
                     return;
                 }
-
 
                 proceedToLogin(user_email, user_password);
 
@@ -140,9 +121,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         if(response_array[0].equals("1"))
                         {
-                            email.setText("");
-                            password.setText("");
-
                             progressDialog.dismiss();
 
 
@@ -160,12 +138,14 @@ public class LoginActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
                             startActivity(intent);
                         }
-                        else
+                        else if(response_array[0].equals("0"))
                         {
                             progressDialog.dismiss();
                             //on dialog dismiss back to interaction mode
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            Toast.makeText(LoginActivity.this,"invalid email or password!", Toast.LENGTH_LONG).show();
+
+                            Toast.makeText(LoginActivity.this,
+                                    response_array[1], Toast.LENGTH_LONG).show();
                         }
 
 

@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
        logout = findViewById(R.id.logout);
        test_user = findViewById(R.id.test_user);
 
-       test_user.setText("Hello, "+ userName.split("\\s")[0]);
+       test_user.setText("Hello, "+ userName.split("\\s")[0].trim());
 
        logout.setOnClickListener(new View.OnClickListener() {
            @Override
