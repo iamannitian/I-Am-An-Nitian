@@ -112,40 +112,40 @@
                     android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgInsta"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="Insta Link"
-                    android:src="@drawable/ic_insta" />
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/cnt_desp"
+                    android:src="@drawable/instax" />
 
                 <ImageButton
                     android:layout_weight="1"
                     android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgFB"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="FB Link"
-                    android:src="@drawable/ic_fb" />
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/cnt_desp"
+                    android:src="@drawable/fbx" />
 
                 <ImageButton
                     android:layout_weight="1"
                     android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgYoutube"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="YouTube Link"
-                    android:src="@drawable/ic_youtube" />
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/cnt_desp"
+                    android:src="@drawable/youtube" />
 
                 <ImageButton
                     android:layout_weight="1"
                     android:scaleType="fitCenter"
                     android:background="@android:color/transparent"
                     android:id="@+id/imgWebpage"
-                    android:layout_width="28dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="Web Page Link"
-                    android:src="@drawable/ic_website" />
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/cnt_desp"
+                    android:src="@drawable/firefox" />
 
             </LinearLayout>
 

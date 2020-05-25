@@ -9,7 +9,8 @@
     tools:context=".SignupActivity">
 
     <ImageView
-        android:layout_width="500dp"
+        android:contentDescription="@string/cnt_desp"
+        android:layout_width="540dp"
         android:layout_height="200dp"
         android:layout_marginTop="-100dp"
         android:background="@drawable/top"/>
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
-        android:text="Sign Up "
+        android:text="@string/signup_space"
         android:textSize="35sp"
         android:textStyle="bold"
         android:layout_marginTop="80dp"
@@ -26,10 +27,11 @@
         />
 
     <EditText
+        android:inputType="text"
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
         android:id="@+id/username"
-        android:hint="User Name"
+        android:hint="@string/name_hint"
         android:drawableStart="@drawable/user"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -38,13 +40,15 @@
         android:layout_marginRight="24dp"
         android:background="@drawable/myinput"
         android:drawablePadding="10dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:autofillHints="" />
 
     <EditText
+        android:inputType="textEmailAddress"
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
         android:id="@+id/email"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
@@ -53,14 +57,16 @@
         android:drawableStart="@drawable/mailicon_small"
         android:drawablePadding="9dp"
         android:background="@drawable/myinput"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:autofillHints="" />
 
 
     <EditText
+        android:inputType="textPassword"
         android:fontFamily="@font/aladin"
         android:textSize="16sp"
         android:id="@+id/password"
-        android:hint="Password"
+        android:hint="@string/pass_hint"
         android:drawableStart="@drawable/lock"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -70,7 +76,7 @@
         android:background="@drawable/myinput"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
-        />
+        android:autofillHints="" />
 
     <Button
         android:fontFamily="@font/aladin"
@@ -81,7 +87,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:text="Sign up "
+        android:text="@string/signup_space"
         android:textSize="16sp"
         android:textColor="#fff"/>
 
@@ -90,7 +96,7 @@
         android:fontFamily="@font/aladin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already a member?"
+        android:text="@string/already_memeber"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:layout_gravity="center"
@@ -102,7 +108,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="20sp"
         android:textColor="@color/colorPrimary"
         android:clickable="true"
@@ -110,6 +116,7 @@
         />
 
     <ImageView
+        android:contentDescription="@string/cnt_desp"
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:background="@drawable/shape"

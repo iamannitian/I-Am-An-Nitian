@@ -65,8 +65,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 String user_email = email.getText().toString().trim().replaceAll("\\s+","");
                 String user_password = password.getText().toString().trim().replaceAll("\\s+","");
-
-
                 //checking user email
 
                 if (user_email.isEmpty())
@@ -111,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         // disable user interaction when progress dialog appears
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
 
-        String url = "http://blog.iamannitian.co.in/login.php";
+        String url = "https://iamannitian.co.in/app/login.php";
         StringRequest sr = new StringRequest(1, url,
                 new Response.Listener<String>() {
                     @Override

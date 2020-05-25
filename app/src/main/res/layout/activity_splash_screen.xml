@@ -72,7 +72,7 @@
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_centerVertical="true"
-            android:contentDescription="@string/logo_desc"
+            android:contentDescription="@string/cnt_desp"
             android:src="@drawable/imnitian" />
 
     </RelativeLayout>

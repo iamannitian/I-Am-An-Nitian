@@ -117,12 +117,12 @@ public class SignupActivity extends AppCompatActivity {
   private void proceedToSignup(final String user_name,final String user_email,final String user_password)
     {
         // show progress bar first
-        progressDialog.setMessage("Processing....");
+        progressDialog.setMessage("Processing...");
         progressDialog.show();
         // disable user interaction when progress dialog appears
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
 
-        String url = "http://blog.iamannitian.co.in/signup.php";
+        String url = "https://iamannitian.co.in/app/signup.php";
         StringRequest sr = new StringRequest(1, url,
                 new Response.Listener<String>() {
                     @Override
@@ -160,7 +160,6 @@ public class SignupActivity extends AppCompatActivity {
                                     response_array[1], Toast.LENGTH_LONG).show();
 
                         }
-
 
                     }
                 }, new Response.ErrorListener() { //error

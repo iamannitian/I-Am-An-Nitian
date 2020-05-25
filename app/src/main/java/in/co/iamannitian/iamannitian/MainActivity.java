@@ -7,11 +7,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView test_user;
     private SharedPreferences sharedPreferences;
 
+    private TextView user_name;
+    private TextView nit_name;
 
     //For Nav-Drawer
     DrawerLayout drawerLayout;
@@ -59,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
     final String[] linksList = new String[]{"https://www.instagram.com/i_am_an_nitian/","https://m.facebook.com/iamannitian","https://www.youtube.com/channel/UCnONMgL4R7ptGLHIK0KaMCQ","https://iamannitian.co.in/",};
     ImageButton img1,img2,img3,img4;
 
-
     //TextView for now , further it will become a whole activity
     TextView textView;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
         img4                = findViewById(R.id.imgWebpage);
         textView            = findViewById(R.id.randomtext);
 
+
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View header_view = inflater.inflate(R.layout.welcome_drawer_header,null);
+
+
+        user_name =  header_view.findViewById(R.id.user_name);
+        nit_name = header_view.findViewById(R.id.nit_name);
+
         //getting shared preferences
         sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
         String userName = sharedPreferences.getString("userName","");
@@ -90,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
        test_user = findViewById(R.id.test_user);
 
        test_user.setText("Hello, "+ userName.split("\\s")[0].trim());
+
+       user_name.setText(userName);
+
 
        logout.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -211,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpToolBar() {
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("I Am An NITian");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("I Am An Nitian");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         abdt = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,R.string.open_drawer,R.string.close_drawer);

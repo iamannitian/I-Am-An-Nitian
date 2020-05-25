@@ -10,7 +10,8 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:layout_width="500dp"
+        android:contentDescription="@string/cnt_desp"
+        android:layout_width="540dp"
         android:layout_height="200dp"
         android:layout_marginTop="-140dp"
         android:background="@drawable/top"/>
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:fontFamily="@font/aladin"
-        android:text="Login "
+        android:text="@string/login"
         android:textColor="@color/colorPrimary"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -36,10 +37,13 @@
         android:drawableStart="@drawable/mailicon_small"
         android:drawablePadding="8dp"
         android:fontFamily="@font/aladin"
-        android:hint="Email or Phone"
-        android:paddingHorizontal="15dp" />
+        android:hint="@string/email_phone_hint"
+        android:paddingHorizontal="15dp"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress" />
 
     <EditText
+        android:inputType="textPassword"
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -50,8 +54,9 @@
         android:drawableStart="@drawable/lock"
         android:drawablePadding="8dp"
         android:fontFamily="@font/aladin"
-        android:hint="Password"
-        android:paddingHorizontal="15dp" />
+        android:hint="@string/pass_hint"
+        android:paddingHorizontal="15dp"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/forgot_password"
@@ -63,7 +68,7 @@
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/aladin"
-        android:text="Forgot Password?"
+        android:text="@string/pass_forg"
         android:textSize="15sp" />
 
     <Button
@@ -75,7 +80,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/mybutton"
         android:fontFamily="@font/aladin"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -85,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/aladin"
-        android:text="Don't have an account?"
+        android:text="@string/not_have_account"
         android:textSize="20sp" />
 
     <TextView
@@ -97,11 +102,12 @@
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/aladin"
-        android:text="Signup"
+        android:text="@string/signup"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp" />
 
     <ImageView
+        android:contentDescription="@string/cnt_desp"
         android:layout_width="150dp"
         android:layout_height="210dp"
         android:background="@drawable/shape"

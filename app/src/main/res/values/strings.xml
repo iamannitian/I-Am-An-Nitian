@@ -1,8 +1,25 @@
 <resources>
     <string name="app_name">I Am An Nitian</string>
-    <string name="logo_desc">Logo</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+
+    <!--============== Login Strings =================-->
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="email_phone_hint">Email or Phone</string>
+    <string name="pass_hint">Password</string>
+    <string name="pass_forg">Forgot Password?</string>
+    <string name="not_have_account">Don\'t have an account?</string>
+
+    <!--============== Signup Strings =================-->
+    <string name="name_hint">User Name</string>
+    <string name="email_hint">Email</string>
+    <string name="signup_space">Sign Up</string>
+    <string name="already_memeber">Already a member?</string>
+
+    <!--============== Splash Strings =================-->
     <string name="splash_msg">Connecting Nitians</string>
 
+    <!--========= Content Description Strings ==========-->
+    <string name="cnt_desp">NIT SXR</string>
 </resources>
