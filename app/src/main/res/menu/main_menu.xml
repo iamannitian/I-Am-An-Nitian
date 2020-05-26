@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/send_notify"
+        android:orderInCategory="100"
+        android:title="Home"
+        android:checkable="true"
+        android:icon="@drawable/home"/>
+
+
+    <item
+        android:id="@+id/book_upload"
+        android:orderInCategory="100"
+        android:title="Preferences"
+        android:checkable="true"
+        android:icon="@drawable/assignment"
+        />
+
+    <item
+        android:id="@+id/add_member"
+        android:orderInCategory="100"
+        android:title="Settings"
+        android:checkable="true"
+        android:icon="@drawable/settings"/>
+
+
+    <item
+        android:id="@+id/add_donar"
+        android:orderInCategory="100"
+        android:title="About"
+        android:checkable="true"
+        android:icon="@drawable/about"/>
+
+
+</menu>

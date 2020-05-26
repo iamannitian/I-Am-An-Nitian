@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:adroid="http://schemas.android.com/tools">
+
+
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never"/>
+
+
+    <item
+        android:id="@+id/app_info"
+        android:orderInCategory="100"
+        android:title="App info"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/notifications"
+        android:icon="@drawable/settings"
+        android:orderInCategory="100"
+        android:title="notifications"
+        app:showAsAction="always"
+         />
+
+
+</menu>

@@ -30,54 +30,23 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
-            android:id="@+id/frame"
+            android:id="@+id/frameLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" >
-
-            <TextView
-                android:text="Main Page"
-                android:gravity="center"
-                android:id="@+id/randomtext"
-                android:textSize="20sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textStyle="bold"
-                android:textSize="30sp"
-                android:fontFamily="@font/aladin"
-                android:id="@+id/test_user"
-                android:text="Hello User"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 android:textAlignment="center"
-                android:layout_marginTop="200dp"
-                />
-
-            <Button
-                android:id="@+id/logout"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="300dp"
-                android:textColor="@color/white"
-                android:background="@drawable/mybutton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Logout"
-                />
 
         </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView"
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginEnd="50dp"
         android:background="@color/colorPrimaryDark"
+        app:menu="@menu/main_menu"
         app:headerLayout="@layout/welcome_drawer_header">
 
         <RelativeLayout
@@ -85,16 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="230dp">
-
-            <ExpandableListView
-                android:divider="@null"
-                android:groupIndicator="@null"
-                android:layout_marginBottom="45dp"
-                android:id="@+id/expandedMenu"
-                android:layout_marginStart="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true" />
 
             <LinearLayout
                 android:background="@color/colorPrimaryDark"
@@ -152,6 +111,5 @@
         </RelativeLayout>
 
     </com.google.android.material.navigation.NavigationView>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
