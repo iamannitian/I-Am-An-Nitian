@@ -18,10 +18,16 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/notifications"
-        android:icon="@drawable/settings"
+        android:id="@+id/developers"
         android:orderInCategory="100"
-        android:title="notifications"
+        android:title="Developers"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:orderInCategory="100"
+        android:title="Search"
         app:showAsAction="always"
          />
 
