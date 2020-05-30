@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:id="@+id/topItems"
         android:checkableBehavior="single">
@@ -41,19 +42,25 @@
 
 
         <item
-            android:id="@+id/send_notify2"
+            android:id="@+id/share"
             android:orderInCategory="100"
-            android:title="Home"
+            android:title="Share App"
             android:checkable="true"
-            android:icon="@drawable/home"/>
-
+            android:icon="@drawable/ic_share_app"/>
 
         <item
-            android:id="@+id/book_upload2"
+            android:id="@+id/settings"
             android:orderInCategory="100"
-            android:title="Preferences"
+            android:title="Settings"
             android:checkable="true"
-            android:icon="@drawable/assignment"
+            android:icon="@drawable/settings"/>
+
+        <item
+            android:id="@+id/logout"
+            android:orderInCategory="100"
+            android:title="Logout"
+            android:checkable="true"
+            android:icon="@drawable/ic_logout"
             />
 
     </group>

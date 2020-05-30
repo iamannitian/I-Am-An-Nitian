@@ -22,4 +22,9 @@
 
     <!--========= Content Description Strings ==========-->
     <string name="cnt_desp">NIT SXR</string>
+
+    <!--========= Drawer Headers Strings ==========-->
+    <string name="user_name">Shubham Maurya</string>
+    <string name="nit_name">NIT Srinagar</string>
+
 </resources>

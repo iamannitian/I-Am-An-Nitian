@@ -39,7 +39,7 @@
             android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Shubham Maurya"
+            android:text="@string/user_name"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -51,7 +51,7 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:text="NIT Srinagar"
+            android:text="@string/nit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

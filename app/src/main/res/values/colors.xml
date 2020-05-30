@@ -16,4 +16,11 @@
     <color name="fifth">#C543E3</color>
     <color name="splash_msg">#ECECEC</color>
 
+    <color name="colorAccentf">#959597</color>
+
+    <!--============ Color used in navigation drawer ====================-->
+    <color name="navigationHorizontalLineColor">#3BFFFFFF</color>
+    <!--============ Color used in bottom navigation drawer ====================-->
+    <color name="navigation_background">@color/colorPrimary</color>
+
   </resources>
