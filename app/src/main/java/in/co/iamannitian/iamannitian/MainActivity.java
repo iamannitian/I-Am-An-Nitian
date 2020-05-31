@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()) {
             case R.id.logout:
                 logout();
+            case R.id.settings:
+                startActivity(new Intent(MainActivity.this, Settings.class));
                 break;
 
         }

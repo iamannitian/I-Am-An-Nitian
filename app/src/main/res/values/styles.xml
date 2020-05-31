@@ -10,7 +10,28 @@
         <!--  overflow menu background color -->
         <item name="android:itemBackground">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/white</item>
+
+
+        <!-- Dark Mode style  -->
+
+        <item name="backgroundColor">#fcfcfc</item>
+        <item name="cardBackground">#ffffff</item>
+        <item name="textColor">#808080</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="buttonColor">#2196f3</item>
+
     </style>
+
+
+    <!-- Base application theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="backgroundColor">#303030</item>
+        <item name="cardBackground">#424242</item>
+        <item name="textColor">#808080</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="buttonColor">#ff0000</item>
+    </style>
+
 
     <!-- ===============    Hiding toolbar only   ================= -->
     <style name="HideToolBar" parent="Theme.AppCompat.Light.NoActionBar">

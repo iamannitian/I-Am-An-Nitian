@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical">
+<androidx.cardview.widget.CardView
+    app:cardBackgroundColor="?attr/cardBackground"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical"
+     >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Title"
+            android:textColor="?attr/textColor"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsom is dummy text to dosomething heer so how it is goin today are you sore
+so how it is goin today are you sore
+so how it is goin today are you sore
+so how it is goin today are you sore
+so how it is goin today are you sore
+so how it is goin today are you sore"
+            android:layout_marginTop="8dp"
+            android:textColor="?attr/textColor"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="?attr/cardBackground"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+                android:padding="10dp"
+               android:orientation="vertical"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Some Component"
+                   android:textColor="?attr/textColor"
+                   android:textStyle="bold"
+                   />
+
+               <RadioButton
+                   android:textColor="?attr/textColor"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Radio Button"
+                   android:layout_marginTop="5dp"
+                   android:buttonTint="?attr/tintColor"
+                   />
+
+               <CheckBox
+                   android:textColor="?attr/textColor"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Checkbox"
+                   android:buttonTint="?attr/tintColor"
+                   />
+
+               <Button
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Button"
+                   android:textColor="?attr/textColor"
+                   android:background="?attr/backgroundColor"
+                   />
+
+           </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardBackgroundColor="?attr/cardBackground"
+        >
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <TextView
+            android:textColor="?attr/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enable Nigh Mode"
+            android:textStyle="bold"
+            />
+
+        <Switch
+            android:layout_marginTop="5dp"
+            android:textColor="?attr/textColor"
+            android:id="@+id/my_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Night Mode"
+            />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
