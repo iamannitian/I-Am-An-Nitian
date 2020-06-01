@@ -25,6 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +38,17 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /*=========>>> Setting Up dark Mode <<<==========*/
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+        {
+            setTheme(R.style.DarkTheme);
+        }
+        else
+        {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -172,6 +184,11 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestQueue rq = Volley.newRequestQueue(LoginActivity.this);
         rq.add(sr);
+    }
+
+    public void forgotPassword(View view)
+    {
+        startActivity(new Intent(LoginActivity.this, ForgetPassword.class));
     }
 
 }

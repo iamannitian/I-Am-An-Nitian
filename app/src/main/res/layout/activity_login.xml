@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="?attr/backgroundColor"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -27,6 +27,8 @@
         android:textStyle="bold" />
 
     <EditText
+        android:textColorHint="?attr/hintColor"
+        android:textColor="?attr/textColor"
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -34,15 +36,18 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/myinput"
-        android:drawableStart="@drawable/mailicon_small"
         android:drawablePadding="8dp"
-        android:fontFamily="@font/aladin"
+        android:drawableStart="@drawable/ic_email"
+        android:fontFamily="@font/roboto"
         android:hint="@string/email_phone_hint"
-        android:paddingHorizontal="15dp"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="15dp"
+        android:textSize="16sp" />
 
     <EditText
+        android:textColor="?attr/textColor"
+        android:fontFamily="@font/roboto"
         android:inputType="textPassword"
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -53,12 +58,17 @@
         android:background="@drawable/myinput"
         android:drawableStart="@drawable/lock"
         android:drawablePadding="8dp"
-        android:fontFamily="@font/aladin"
         android:hint="@string/pass_hint"
+        android:textSize="16sp"
+        android:textColorHint="?attr/hintColor"
         android:paddingHorizontal="15dp"
         android:autofillHints="" />
 
     <TextView
+        android:textColorHint="?attr/hintColor"
+        android:textColor="?attr/textColor"
+        android:onClick="forgotPassword"
+        android:fontFamily="@font/roboto"
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +77,6 @@
         android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/aladin"
         android:text="@string/pass_forg"
         android:textSize="15sp" />
 
@@ -79,21 +88,21 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/mybutton"
-        android:fontFamily="@font/aladin"
         android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-
     <TextView
+        android:textColor="?attr/textColor"
+        android:fontFamily="@font/roboto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/aladin"
         android:text="@string/not_have_account"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
+        android:fontFamily="@font/roboto"
         android:id="@+id/go_to_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,10 +110,9 @@
         android:layout_marginTop="0dp"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/aladin"
         android:text="@string/signup"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <ImageView
         android:contentDescription="@string/cnt_desp"

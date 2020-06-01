@@ -8,7 +8,7 @@
     <string name="signup">Signup</string>
     <string name="email_phone_hint">Email or Phone</string>
     <string name="pass_hint">Password</string>
-    <string name="pass_forg">Forgot Password?</string>
+    <string name="pass_forg">forgot password?</string>
     <string name="not_have_account">Don\'t have an account?</string>
 
     <!--============== Signup Strings =================-->

@@ -36,6 +36,9 @@ dependencies {
 
     //volley library
     implementation 'com.android.volley:volley:1.1.1'
+	
+	//lottie library
+    implementation 'com.airbnb.android:lottie:3.4.0'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
