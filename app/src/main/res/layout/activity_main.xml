@@ -34,11 +34,26 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeToRefresh"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Refresh.."
+                android:textAlignment="center"
+                android:gravity="center"
+                android:id="@+id/counter"
+                />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -61,7 +76,6 @@
 
             </RelativeLayout>
 
-        </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

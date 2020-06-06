@@ -8,10 +8,13 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,7 +34,6 @@ import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
-
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -39,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView bottomNavigationView;
     private View notificationBadge;
     private SwitchCompat switchCompat;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+    private TextView counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
       /*=========>>> Setting Up dark Mode <<<==========*/
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
@@ -65,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .findItem(R.id.dark_mode_switch)
                 .getActionView();
 
+        /*============>> This layout is used to refresh screen on pull downwards <<===============*/
+        swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
+        swipeRefreshLayout.setColorSchemeColors(Color.RED);
+        counter = findViewById(R.id.counter);
+
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
             switchCompat.setChecked(true);
@@ -85,6 +94,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run()
+                    {
+                        counter.setText("Done..!!");
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 3000);
+
+            }
+        });
+
 
         setUpToolbarMenu();
         setUpDrawerMenu();
@@ -197,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     /*=======>>>>>>> Show notification Badge <<<<<<<<<=========*/
     public void showBadge()
     {
-
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
         BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(4);
         notificationBadge = LayoutInflater.from(this).inflate(R.layout.notification_badge, menuView,false);
