@@ -1,32 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     android:background="?attr/backgroundColor"
     tools:context=".SignupActivity">
 
-    <ImageView
-        android:contentDescription="@string/cnt_desp"
-        android:layout_width="540dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="-100dp"
-        android:background="@drawable/top"/>
+    <RelativeLayout
+        android:layout_marginLeft="-45dp"
+        android:layout_marginTop="-50dp"
+        android:stateListAnimator="@null"
+        android:background="@drawable/top"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="240dp">
 
-    <TextView
-        android:fontFamily="@font/aladin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:text="@string/signup_space"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:layout_marginTop="80dp"
-        />
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello,"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:id="@+id/top_text"
+            />
+
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up!"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingTop="160dp"
+        android:layout_centerInParent="true"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 
     <EditText
+        android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
         android:fontFamily="@font/roboto"
@@ -38,14 +66,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:background="@drawable/myinput"
         android:drawablePadding="10dp"
         android:layout_marginTop="20dp"
         android:autofillHints="" />
 
     <EditText
+        android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
         android:fontFamily="@font/roboto"
@@ -56,8 +83,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:drawableStart="@drawable/ic_email"
         android:drawablePadding="9dp"
         android:background="@drawable/myinput"
@@ -66,6 +91,7 @@
 
 
     <EditText
+        android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
         android:fontFamily="@font/roboto"
@@ -77,22 +103,20 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:background="@drawable/myinput"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
         android:autofillHints="" />
 
     <Button
+        android:stateListAnimator="@null"
+        android:fontFamily="@font/roboto"
         android:textColor="@color/white"
         android:id="@+id/click_to_sign_up"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:text="@string/signup_space"
         android:textSize="16sp"
         />
@@ -122,14 +146,5 @@
         android:focusable="true"
         />
 
-    <ImageView
-        android:contentDescription="@string/cnt_desp"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:background="@drawable/shape"
-        android:layout_gravity="start"
-        android:layout_marginStart="-40dp"
-        android:layout_marginBottom="-90dp"
-        android:layout_marginTop="40dp" />
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

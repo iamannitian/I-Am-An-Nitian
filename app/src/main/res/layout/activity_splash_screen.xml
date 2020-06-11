@@ -1,100 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color"
-    android:orientation="vertical"
+    android:background="@drawable/splash_background"
     tools:context=".SplashScreen">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <!--
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            >
+
+            <View
+                android:id="@+id/main"
+                android:layout_width="15dp"
+                android:layout_height="50dp"
+                android:background="@color/main" />
+
+            <View
+                android:layout_toEndOf="@id/main"
+                android:id="@+id/first"
+                android:layout_width="15dp"
+                android:layout_height="90dp"
+                android:background="@color/first" />
+
+            <View
+                android:layout_toEndOf="@id/first"
+                android:id="@+id/second"
+                android:layout_width="15dp"
+                android:layout_height="120dp"
+                android:background="@color/second" />
+
+            <View
+                android:layout_toEndOf="@id/second"
+                android:id="@+id/third"
+                android:layout_width="15dp"
+                android:layout_height="190dp"
+                android:background="@color/third"
+                />
+
+            <View
+                android:layout_toEndOf="@id/third"
+                android:id="@+id/fourth"
+                android:layout_width="15dp"
+                android:layout_height="160dp"
+                android:background="@color/fourth"
+                />
+
+            <View
+                android:layout_toEndOf="@id/fourth"
+                android:id="@+id/fifth"
+                android:layout_width="15dp"
+                android:layout_height="130dp"
+                android:background="@color/fifth"
+                android:layout_marginEnd="15dp"
+               />
+
+        </RelativeLayout>
+    -->
+    <LinearLayout
+        android:id="@+id/logo_layout"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="end"
-        >
-
-        <View
-            android:id="@+id/main"
-            android:layout_width="15dp"
-            android:layout_height="50dp"
-            android:background="@color/main" />
-
-        <View
-            android:layout_toEndOf="@id/main"
-            android:id="@+id/first"
-            android:layout_width="15dp"
-            android:layout_height="90dp"
-            android:background="@color/first" />
-
-        <View
-            android:layout_toEndOf="@id/first"
-            android:id="@+id/second"
-            android:layout_width="15dp"
-            android:layout_height="120dp"
-            android:background="@color/second" />
-
-        <View
-            android:layout_toEndOf="@id/second"
-            android:id="@+id/third"
-            android:layout_width="15dp"
-            android:layout_height="190dp"
-            android:background="@color/third"
-            />
-
-        <View
-            android:layout_toEndOf="@id/third"
-            android:id="@+id/fourth"
-            android:layout_width="15dp"
-            android:layout_height="160dp"
-            android:background="@color/fourth"
-            />
-
-        <View
-            android:layout_toEndOf="@id/fourth"
-            android:id="@+id/fifth"
-            android:layout_width="15dp"
-            android:layout_height="130dp"
-            android:background="@color/fifth"
-            android:layout_marginEnd="15dp"
-           />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_centerVertical="true"
             android:contentDescription="@string/cnt_desp"
             android:src="@drawable/imnitian" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/logo_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
+            android:layout_alignParentBottom="true"
             android:id="@+id/splash_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="35dp"
             android:fontFamily="@font/aladin"
             android:text="@string/splash_msg"
             android:textAlignment="center"
-            android:textColor="@color/splash_msg"
-            android:textSize="30sp"
+            android:textColor="#BDBDBD"
+            android:textSize="28sp"
             android:textStyle="bold" />
+    </RelativeLayout>
 
-
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

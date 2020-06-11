@@ -3,6 +3,11 @@
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
 
+    <!--============== Welcome Screen Strings =================-->
+    <string name="login_or_signup">Login Or signup</string>
+    <string name="facebook">Continue With facebook</string>
+    <string name="google">Continue With Google</string>
+
     <!--============== Login Strings =================-->
     <string name="login">Login</string>
     <string name="signup">Signup</string>

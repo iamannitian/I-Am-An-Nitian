@@ -8,8 +8,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -30,34 +34,50 @@ public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /*=========>>> Setting Up dark Mode <<<==========*/
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+        {
+            setTheme(R.style.DarkTheme);
+        }
+        else
+        {
+            setTheme(R.style.AppTheme);
+        }
+
+
         super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
         setContentView(R.layout.activity_splash_screen);
 
         sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
         final String user_id = sharedPreferences.getString("userId", "");
 
-        top_animation = AnimationUtils.loadAnimation(this, R.anim.top_aimation);
-        middle_animation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
+       // top_animation = AnimationUtils.loadAnimation(this, R.anim.top_aimation);
+        //middle_animation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
         bottom_animation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
-        main = findViewById(R.id.main);
+        /*main = findViewById(R.id.main);
         first = findViewById(R.id.first);
         second = findViewById(R.id.second);
         third = findViewById(R.id.third);
         fourth = findViewById(R.id.fourth);
-        fifth = findViewById(R.id.fifth);
+        fifth = findViewById(R.id.fifth);*/
         splash_msg = findViewById(R.id.splash_msg);
         logo = findViewById(R.id.logo);
 
 
-        main.setAnimation(top_animation);
+        /*main.setAnimation(top_animation);
         first.setAnimation(top_animation);
         second.setAnimation(top_animation);
         third.setAnimation(top_animation);
         fourth.setAnimation(top_animation);
         fifth.setAnimation(top_animation);
 
-        logo.setAnimation(middle_animation);
+        logo.setAnimation(middle_animation);*/
 
         splash_msg.setAnimation(bottom_animation);
 
