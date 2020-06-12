@@ -13,52 +13,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-            <androidx.appcompat.widget.Toolbar
-                app:contentInsetStart="0dp"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStartWithNavigation="0dp"
-                app:titleMarginStart="6dp"
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:layout_scrollFlags="scroll|enterAlways" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeToRefresh"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Refresh.."
-                android:textAlignment="center"
-                android:gravity="center"
-                android:id="@+id/counter"
-                />
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-            <RelativeLayout
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="wrap_content"
+                android:elevation="0dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                <androidx.appcompat.widget.Toolbar
+                    app:contentInsetStart="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:titleMarginStart="6dp"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:layout_scrollFlags="scroll|enterAlways" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+                <FrameLayout
+                    android:layout_above="@id/bottom_navigation_view"
+                    android:layout_below="@id/appBarLayout"
+                    android:id="@+id/fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 app:itemTextAppearanceActive="@style/BottomNavigationViewTextControl"
@@ -74,7 +61,7 @@
                 app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
                 />
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

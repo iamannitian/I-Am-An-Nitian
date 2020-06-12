@@ -10,13 +10,13 @@
         android:icon="@drawable/ic_user_profile"
         android:id="@+id/profile"
         android:title="Profile" />
-
+<!--
     <item
         android:id="@+id/buy"
         android:title="Buy"
         android:icon="@drawable/ic_shopping_cart"
         />
-
+-->
     <item
         android:id="@+id/chat"
         android:title="Chat"

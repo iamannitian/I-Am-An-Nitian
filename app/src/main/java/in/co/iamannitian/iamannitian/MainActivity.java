@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
@@ -43,9 +44,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView bottomNavigationView;
     private View notificationBadge;
     private SwitchCompat switchCompat;
-    private SwipeRefreshLayout swipeRefreshLayout;
+    //private SwipeRefreshLayout swipeRefreshLayout;
 
-    private TextView counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .getActionView();
 
         /*============>> This layout is used to refresh screen on pull downwards <<===============*/
-        swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
-        swipeRefreshLayout.setColorSchemeColors(Color.RED);
-        counter = findViewById(R.id.counter);
+        //swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
+        //swipeRefreshLayout.setColorSchemeColors(Color.RED);
+        //counter = findViewById(R.id.counter);
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
@@ -97,21 +97,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        /*swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run()
                     {
-                        counter.setText("Done..!!");
+                      //  counter.setText("Done..!!");
                         swipeRefreshLayout.setRefreshing(false);
                     }
                 }, 3000);
 
             }
-        });
+        });*/
 
+
+        //always keep home fragment when app is opened
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new HomeFragment())
+                .commit();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment selectedFragment = null;
+
+                switch (menuItem.getItemId())
+                {
+                    case R.id.home:
+                        selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.notification:
+                        selectedFragment = new NotificationFragment();
+                        break;
+                    case R.id.chat:
+                        selectedFragment = new ChatFragment();
+                        break;
+                    case R.id.profile:
+                        selectedFragment = new ProfileFragment();
+                        break;
+                }
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
+
+                return true;
+            }
+        });
 
         setUpToolbarMenu();
         setUpDrawerMenu();
@@ -225,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void showBadge()
     {
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
-        BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(4);
+        BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(3);
         notificationBadge = LayoutInflater.from(this).inflate(R.layout.notification_badge, menuView,false);
         itemView.addView(notificationBadge);
     }

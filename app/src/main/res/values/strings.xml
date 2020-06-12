@@ -4,13 +4,13 @@
     <string name="close_drawer">Close Drawer</string>
 
     <!--============== Welcome Screen Strings =================-->
-    <string name="login_or_signup">Login Or signup</string>
+    <string name="login_or_signup">Log in Or sign up</string>
     <string name="facebook">Continue With facebook</string>
     <string name="google">Continue With Google</string>
 
     <!--============== Login Strings =================-->
-    <string name="login">Login</string>
-    <string name="signup">Signup</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
     <string name="email_phone_hint">Email or Phone</string>
     <string name="pass_hint">Password</string>
     <string name="pass_forg">forgot password?</string>
