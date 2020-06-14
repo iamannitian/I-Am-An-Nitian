@@ -13,10 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
@@ -39,30 +35,46 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-                <FrameLayout
-                    android:layout_above="@id/bottom_navigation_view"
-                    android:layout_below="@id/appBarLayout"
-                    android:id="@+id/fragment_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+        <androidx.core.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                app:itemTextAppearanceActive="@style/BottomNavigationViewTextControl"
-                app:itemBackground="@color/navigation_background"
-                app:itemTextColor="@drawable/bottom_nav_selector"
-                app:itemIconTint="@drawable/bottom_nav_selector"
-                app:labelVisibilityMode="labeled"
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:orientation="vertical"
+                >
+
+             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bottom_navigation_view"
-                app:menu="@menu/bottom_navigation_menu"
-                android:layout_alignParentBottom="true"
-                app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                android:text="Home"
+                android:textColor="@color/first"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                 android:layout_marginLeft="150dp"
+                android:layout_marginTop="150dp"
                 />
+            </LinearLayout>
 
-        </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:background="?attr/backgroundColor"
+            app:itemTextColor="@drawable/bottom_nav_selector"
+            app:itemIconTint="@drawable/bottom_nav_selector"
+            app:labelVisibilityMode="labeled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_navigation_view"
+            app:menu="@menu/bottom_navigation_menu"
+            android:layout_gravity="bottom"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -72,13 +84,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryDarkx"
         app:menu="@menu/main_menu"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         android:theme="@style/NavigationViewHorizontalLineColor"
-        app:headerLayout="@layout/drawer_header">
-
-    </com.google.android.material.navigation.NavigationView>
+        app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -11,5 +11,9 @@
         <attr name="hintColor" format="color"/>
         <attr name="iconColor" format="color"/>
         <attr name="strokeColor" format="color"/>
+        <attr name="bottomNavIconColor" format="color"/>
+        <attr name="bottomNavIconColorSelected" format="color"/>
+        <attr name="colorPrimaryDarkx" format="color"/>
+        <attr name="colorAccent" format="color"/>
     </declare-styleable>
 </resources>

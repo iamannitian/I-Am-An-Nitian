@@ -4,13 +4,13 @@
 
     <item
         android:state_selected="true"
-        android:color="@color/colorPrimaryDark"
+        android:color="?attr/bottomNavIconColorSelected"
 
         />
 
     <item
         android:state_selected="false"
-        android:color="@color/white"
+        android:color="?attr/bottomNavIconColor"
         />
 
 </selector>

@@ -1,38 +1,32 @@
 package in.co.iamannitian.iamannitian;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import android.widget.Toast;
+    import androidx.annotation.NonNull;
+        import androidx.appcompat.app.ActionBar;
+        import androidx.appcompat.app.ActionBarDrawerToggle;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatDelegate;
+        import androidx.appcompat.widget.SwitchCompat;
+        import androidx.appcompat.widget.Toolbar;
+        import androidx.core.view.GravityCompat;
+        import androidx.drawerlayout.widget.DrawerLayout;
+        import androidx.fragment.app.Fragment;
+        import android.content.Intent;
+        import android.content.SharedPreferences;
+        import android.os.Bundle;
+        import android.view.LayoutInflater;
+        import android.view.Menu;
+        import android.view.MenuInflater;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.CompoundButton;
+        import android.widget.TextView;
+        import android.widget.Toast;
+        import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+        import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+        import com.google.android.material.bottomnavigation.BottomNavigationView;
+        import com.google.android.material.navigation.NavigationView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-
-import static android.view.View.GONE;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class ProfileActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener
 {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -45,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-      /*=========>>> Setting Up dark Mode <<<==========*/
+        /*=========>>> Setting Up dark Mode <<<==========*/
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
             setTheme(R.style.DarkTheme);
@@ -56,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profile);
 
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
@@ -87,28 +81,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment selectedFragment = null;
 
                 switch (menuItem.getItemId())
                 {
                     case R.id.home:
-                        //do nothing
+                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.notification:
-                        startActivity(new Intent(MainActivity.this, NotificationActivity.class));
+                        startActivity(new Intent(ProfileActivity.this, NotificationActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     case R.id.chat:
-                        startActivity(new Intent(MainActivity.this, ChatActivity.class));
+                        startActivity(new Intent(ProfileActivity.this, ChatActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     case R.id.profile:
-                        startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-                        overridePendingTransition(0,0);
+                       //do nothing
                         break;
                 }
 
@@ -127,14 +122,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
         ActionBar actionBar =  getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.app_logo);
 
         /* -- change the font family of the toolbar title -- */
-       //TextView title = (TextView) toolbar.getChildAt(0);
+        //TextView title = (TextView) toolbar.getChildAt(0);
 
         //title.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
     }
@@ -143,14 +138,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     /*=======>>>>>>> Setting up navigation drawer <<<<<<<<<=========*/
     private  void setUpDrawerMenu()
     {
-      navigationView.setNavigationItemSelectedListener(this);
-      drawerLayout = findViewById(R.id.drawerLayout);
-      ActionBarDrawerToggle  drawerToggle =
-              new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_drawer, R.string.close_drawer);
+        navigationView.setNavigationItemSelectedListener(this);
+        drawerLayout = findViewById(R.id.drawerLayout);
+        ActionBarDrawerToggle drawerToggle =
+                new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_drawer, R.string.close_drawer);
 
-      drawerLayout.addDrawerListener(drawerToggle);
-      drawerToggle.setDrawerArrowDrawable(new HumbergerDrawable(this));
-      drawerToggle.syncState();
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.setDrawerArrowDrawable(new HumbergerDrawable(this));
+        drawerToggle.syncState();
     }
 
     private void closeDrawer()
@@ -207,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     void logout()
     {
         sharedPreferences.edit().clear().apply();
-        Intent intent = new Intent(MainActivity.this, LoginOrSignupActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, LoginOrSignupActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
         startActivity(intent);
     }
