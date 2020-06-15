@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -12,120 +13,82 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                android:elevation="0dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                <androidx.appcompat.widget.Toolbar
+                    app:contentInsetStart="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:titleMarginStart="6dp"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:layout_scrollFlags="scroll|enterAlways" />
 
-        <FrameLayout
-            android:id="@+id/frame"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+            </com.google.android.material.appbar.AppBarLayout>
 
-            <TextView
-                android:text="Main Page"
-                android:gravity="center"
-                android:id="@+id/randomtext"
-                android:textSize="20sp"
+        <androidx.core.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </FrameLayout>
+                android:layout_height="1000dp"
+                android:orientation="vertical"
+                >
+
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/first"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                 android:layout_marginLeft="150dp"
+                android:layout_marginTop="150dp"
+                />
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:background="?attr/backgroundColor"
+            app:itemTextColor="@drawable/bottom_nav_selector"
+            app:itemIconTint="@drawable/bottom_nav_selector"
+            app:labelVisibilityMode="labeled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_navigation_view"
+            app:menu="@menu/bottom_navigation_menu"
+            android:layout_gravity="bottom"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView"
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layout_marginEnd="50dp"
-        android:background="@color/colorPrimaryDark"
-        app:headerLayout="@layout/welcome_drawer_header">
-
-        <RelativeLayout
-            android:id="@+id/relLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="230dp">
-
-            <ExpandableListView
-                android:divider="@null"
-                android:groupIndicator="@null"
-                android:layout_marginBottom="45dp"
-                android:id="@+id/expandedMenu"
-                android:layout_marginStart="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true" />
-
-            <LinearLayout
-                android:background="@color/colorPrimaryDark"
-                android:id="@+id/socialLayout"
-                android:weightSum="4"
-                android:layout_marginHorizontal="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/imgInsta"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="Insta Link"
-                    android:src="@drawable/ic_insta" />
-
-                <ImageButton
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/imgFB"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="FB Link"
-                    android:src="@drawable/ic_fb" />
-
-                <ImageButton
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/imgYoutube"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="YouTube Link"
-                    android:src="@drawable/ic_youtube" />
-
-                <ImageButton
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/imgWebpage"
-                    android:layout_width="28dp"
-                    android:layout_height="35dp"
-                    android:contentDescription="Web Page Link"
-                    android:src="@drawable/ic_website" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </com.google.android.material.navigation.NavigationView>
+        android:layout_marginEnd="10dp"
+        android:background="@color/colorPrimaryDarkx"
+        app:menu="@menu/main_menu"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        android:theme="@style/NavigationViewHorizontalLineColor"
+        app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
