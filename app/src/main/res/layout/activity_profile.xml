@@ -37,15 +37,207 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="@color/first"
-            android:textSize="35dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            />
+        <androidx.core.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:paddingBottom="15dp"
+                    android:elevation="3dp"
+                    android:id="@+id/framex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/cardBackground"
+                    >
+
+                    <ImageView
+                        android:contentDescription="@string/cnt_desp"
+                        android:id="@+id/lineal"
+                        android:orientation="vertical"
+                        android:background="@drawable/real_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"/>
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:contentDescription="@string/cnt_desp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_below="@id/lineal"
+                            android:layout_marginTop="-65dp"
+                            android:id="@+id/user_profile_pic"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:elevation="4dp"
+                            android:src="@drawable/amir"
+                            app:civ_border_color="#efefee"
+                            app:civ_border_width="4dp" />
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:layout_below="@id/user_profile_pic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shubham Maurya"
+                        android:id="@+id/user_name"
+                        android:textColor="?attr/textColor"/>
+
+                    <TextView
+                        android:layout_marginEnd="35dp"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/nit_name"
+                        android:layout_below="@id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="National Institute Of Technology, Srinagar"/>
+
+                    <TextView
+                        android:layout_marginEnd="40dp"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/user_address"
+                        android:layout_below="@id/nit_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jammu &amp; Kashmir, India"/>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="9dp"
+                    android:paddingTop="15dp"
+                    android:paddingStart="20dp"
+                    android:elevation="3dp"
+                    android:background="?attr/cardBackground"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/heading1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Education"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        />
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/nitlogo"
+                        android:layout_below="@id/heading1"
+                        android:id="@+id/nit_logo"
+                        />
+
+
+                    <TextView
+                        android:layout_toRightOf="@id/nit_logo"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="15sp"
+                        android:textColor="?attr/textColor"
+                        android:id="@+id/degree"
+                        android:layout_below="@id/heading1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bachelor Of Technology, Computer Science &amp; Engineering"
+                        />
+
+                    <TextView
+                        android:layout_toRightOf="@id/nit_logo"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:id="@+id/year"
+                        android:layout_below="@id/degree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2017-2021"
+                        />
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="9dp"
+                    android:paddingTop="15dp"
+                    android:paddingStart="20dp"
+                    android:elevation="3dp"
+                    android:background="?attr/cardBackground"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/heading2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacts"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                    />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+
+                        />
+
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:textSize="15sp"
+                        android:textColor="?attr/textColor"
+                        android:id="@+id/email"
+                        android:layout_below="@id/heading2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="pnssoftwares7@gmail.com"
+                        />
+
+
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:id="@+id/phone"
+                        android:layout_below="@id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91-8130512823"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
