@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".NotificationActivity"></activity>
         <activity android:name=".ChatActivity" />
         <activity android:name=".ProfileActivity" />
@@ -18,7 +17,6 @@
             android:name=".LoginActivity"
             android:theme="@style/HideAppBar"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".SignupActivity"
             android:theme="@style/HideAppBar"

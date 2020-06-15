@@ -37,8 +37,8 @@ public class SignupActivity extends AppCompatActivity {
     private TextView go_to_login;
 
     private ProgressDialog progressDialog;
-    @RequiresApi(api = Build.VERSION_CODES.O)
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,15 +64,9 @@ public class SignupActivity extends AppCompatActivity {
         click_to_sign_up = findViewById(R.id.click_to_sign_up);
         go_to_login = findViewById(R.id.go_to_login);
 
-
-        final EditText username= findViewById(R.id.username);
-        final EditText email= findViewById(R.id.email);
-        final EditText phone= findViewById(R.id.phone);
-        final EditText pass= findViewById(R.id.pass);
         //initializing progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCanceledOnTouchOutside(false); //prevent disappearing
-
 
         click_to_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override

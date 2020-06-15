@@ -7,27 +7,6 @@
     android:background="?attr/backgroundColor"
     tools:context=".SignupActivity">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="448dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="-210dp"
-        android:background="@drawable/top"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:text="Sign Up "
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:layout_marginTop="60dp" />
-
-    <EditText
-        android:id="@+id/username"
-        android:hint="User name"
-        android:drawableStart="@drawable/usericon_small"
-
     <RelativeLayout
         android:layout_marginLeft="-45dp"
         android:layout_marginTop="-50dp"
@@ -85,13 +64,9 @@
         android:hint="@string/name_hint"
         android:drawableStart="@drawable/user"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:paddingHorizontal="10dp"
         android:background="@drawable/myinput"
-        android:layout_marginTop="20dp"/>
-
-    <EditText
-=======
         android:drawablePadding="10dp"
         android:layout_marginTop="20dp"
         android:autofillHints="" />
@@ -106,34 +81,16 @@
         android:id="@+id/email"
         android:hint="@string/email_hint"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:drawableStart="@drawable/ic_email"
         android:drawablePadding="9dp"
         android:background="@drawable/myinput"
         android:layout_marginTop="20dp"
         android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:hint="Phone number"
-        android:inputType="phone"
-        android:maxLength="11"
-        android:drawableStart="@drawable/phoneicon_small"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:paddingHorizontal="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/myinput"
-        android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/pass"
-        android:hint="password"
-        android:drawableStart="@drawable/passicon_small"
         android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
@@ -144,13 +101,9 @@
         android:hint="@string/pass_hint"
         android:drawableStart="@drawable/lock"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:paddingHorizontal="10dp"
         android:background="@drawable/myinput"
-        android:layout_marginTop="20dp"/>
-
-    <Button
-        android:id="@+id/signup"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
         android:autofillHints="" />
@@ -161,17 +114,12 @@
         android:textColor="@color/white"
         android:id="@+id/click_to_sign_up"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:text="SIGN UP"
-        android:textSize="25sp"
-        android:textColor="#fff"/>
-
-</LinearLayout>
-
+        android:text="@string/signup_space"
+        android:textSize="16sp"
+        />
 
 
     <TextView
@@ -200,4 +148,3 @@
 
     </LinearLayout>
 </RelativeLayout>
-
