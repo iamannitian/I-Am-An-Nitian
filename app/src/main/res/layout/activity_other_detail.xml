@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".OtherDetail">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <androidx.appcompat.widget.Toolbar
+            android:paddingStart="20dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleMarginStart="6dp"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:padding="22dp"
+                android:elevation="2dp"
+                android:background="?attr/cardBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingEnd="20dp"
+                    android:layout_gravity="right"
+                    android:stateListAnimator="@null"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="?attr/textColor"
+                    android:id="@+id/click_to_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Skip"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:textColor="?attr/textColor"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Education Details"
+                    />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/college"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Your College"
+                    android:drawableStart="@drawable/ic_account_balance_black_24dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/degree"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Degree"
+                    android:drawableStart="@drawable/ic_school_black_24dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/branch"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Branch"
+                    android:drawableStart="@drawable/ic_book_black_24dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <EditText
+                        android:layout_gravity="left"
+                        android:layout_marginRight="50dp"
+                        android:stateListAnimator="@null"
+                        android:textColor="?attr/textColor"
+                        android:textColorHint="?attr/hintColor"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:textSize="16sp"
+                        android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:id="@+id/start_year"
+                        android:hint="Start Date"
+                        android:drawablePadding="5dp"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/date_input_shape"
+                        android:paddingHorizontal="10dp"
+                        android:paddingStart="10dp"
+                        />
+
+                    <EditText
+                        android:layout_gravity="right"
+                        android:drawablePadding="5dp"
+                        android:paddingStart="10dp"
+                        android:stateListAnimator="@null"
+                        android:textColor="?attr/textColor"
+                        android:textColorHint="?attr/hintColor"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:textSize="16sp"
+                        android:id="@+id/end_year"
+                        android:hint="End Date"
+                        android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:background="@drawable/date_input_shape"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:paddingHorizontal="10dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="?attr/cardBackground"
+                android:elevation="2dp"
+                android:layout_marginTop="2dp"
+                android:padding="22dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="?attr/textColor"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    />
+
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/state"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Your State"
+                    android:drawableStart="@drawable/ic_home_profile"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/district"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Country"
+                    android:drawableStart="@drawable/ic_location_city_black_24dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="?attr/cardBackground"
+                android:elevation="2dp"
+                android:layout_marginTop="2dp"
+                android:padding="22dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="?attr/textColor"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact"
+                    />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Phone"
+                    android:drawableStart="@drawable/ic_phone_black_24dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="?attr/textColor"
+                    android:textColorHint="?attr/hintColor"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/myinput"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <Button
+                    android:stateListAnimator="@null"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/white"
+                    android:id="@+id/click_to_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/mybutton"
+                    android:layout_marginTop="30dp"
+                    android:text="Continue"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="20dp"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

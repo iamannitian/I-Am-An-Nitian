@@ -3,9 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     package="in.co.iamannitian.iamannitian">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/imnitian"
@@ -13,16 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationActivity"></activity>
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".ProfileActivity">
+        <activity android:name=".OtherDetail">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".ProfileActivity">
+
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/HideAppBar"
@@ -31,19 +31,17 @@
             android:name=".SignupActivity"
             android:theme="@style/HideAppBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginOrSignupActivity" />
         <activity android:name=".ForgetPassword" />
-
-        <activity android:name=".SplashScreen">
-
-        </activity>
+        <activity android:name=".SplashScreen"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
