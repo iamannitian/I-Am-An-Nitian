@@ -12,11 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".OtherDetail">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".NotificationActivity" />
         <activity android:name=".ChatActivity" />
@@ -31,7 +26,14 @@
             android:name=".SignupActivity"
             android:theme="@style/HideAppBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".LoginOrSignupActivity" />
         <activity android:name=".ForgetPassword" />
         <activity android:name=".SplashScreen"></activity>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">?attr/backgroundColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:itemBackground">#f2ffff</item>
+        <item name="android:textColor">#515151</item>
+        <item name="actionOverflowButtonStyle">@style/ThreeDotColor</item>
+
+        <!-- Dark Mode style  -->
+        <item name="backgroundColor">#f2ffff</item>
+        <item name="cardBackground">#f2ffff</item>
+        <item name="textColor">#515151</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="buttonColor">#2196f3</item>
+        <item name="hintColor">#8A8989</item>
+        <item name="iconColor">#717171</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+
+        <item name="bottomNavIconColor">#717171</item>
+        <item name="bottomNavIconColorSelected">@color/colorPrimaryDarkx</item>
+    </style>
+</resources>

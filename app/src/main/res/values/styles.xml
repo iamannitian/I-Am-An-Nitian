@@ -1,15 +1,17 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <!--  overflow menu background color -->
-        <item name="android:itemBackground">@color/colorPrimaryDarkx</item>
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="colorPrimaryDark" tools:targetApi="23">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar"  tools:targetApi="m">true</item>
+
+        <item name="android:itemBackground">#f2ffff</item>
+        <item name="android:textColor">#515151</item>
+        <item name="actionOverflowButtonStyle">@style/ThreeDotColor</item>
 
         <!-- Dark Mode style  -->
         <item name="backgroundColor">#f2ffff</item>
@@ -20,14 +22,14 @@
         <item name="hintColor">#8A8989</item>
         <item name="iconColor">#717171</item>
         <item name="strokeColor">@color/colorPrimary</item>
+
         <item name="bottomNavIconColor">#717171</item>
         <item name="bottomNavIconColorSelected">@color/colorPrimaryDarkx</item>
     </style>
 
-    <!-- Base application theme. -->
+    <!-- DarkTheme application theme. -->
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="backgroundColor">#303030</item>
         <item name="cardBackground">#424242</item>
@@ -37,8 +39,12 @@
         <item name="iconColor">#A3A2A2</item>
         <item name="strokeColor">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/windowAnimationTransition</item>
-        <item name="bottomNavIconColor">@color/white</item>
+        <item name="android:textColor">#A3A2A2</item>
+        <item name="android:itemBackground">#424242</item>
+        <item name="bottomNavIconColor">#A3A2A2</item>
         <item name="bottomNavIconColorSelected">@color/colorAccent</item>
+        <item name="colorPrimaryDark">?attr/backgroundColor</item>
+        <item name="android:windowLightStatusBar"  tools:targetApi="m">false</item>
     </style>
 
     <!-- ===============    Hiding toolbar only   ================= -->
@@ -73,4 +79,9 @@
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
+
+    <!--=================== Option Menu Three dot color =====================-->
+    <style name="ThreeDotColor" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">?attr/textColor</item>
+    </style>
    </resources>

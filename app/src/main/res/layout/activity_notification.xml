@@ -15,13 +15,17 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:background="?attr/backgroundColor"
+            app:elevation="0dp"
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="0dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
             <androidx.appcompat.widget.Toolbar
+                android:layout_margin="10dp"
+                android:elevation="4dp"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStartWithNavigation="0dp"
@@ -29,10 +33,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/toolbar_backgound"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -68,13 +72,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorPrimaryDarkx"
+        android:background="?attr/backgroundColor"
         app:menu="@menu/main_menu"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"
+        app:itemTextColor="?attr/textColor"
+        app:itemIconTint="?attr/textColor"
         android:theme="@style/NavigationViewHorizontalLineColor"
-        app:headerLayout="@layout/drawer_header">
-
-    </com.google.android.material.navigation.NavigationView>
+        app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

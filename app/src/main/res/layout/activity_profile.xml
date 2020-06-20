@@ -15,13 +15,17 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:background="?attr/backgroundColor"
+            app:elevation="0dp"
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
             <androidx.appcompat.widget.Toolbar
+                android:layout_margin="10dp"
+                android:elevation="4dp"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStartWithNavigation="0dp"
@@ -29,13 +33,12 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/toolbar_backgound"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                 />
 
         </com.google.android.material.appbar.AppBarLayout>
-
 
         <androidx.core.widget.NestedScrollView
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -51,54 +54,66 @@
                 android:orientation="vertical"
                 >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimaryDarkx"/>
-
                 <RelativeLayout
                     android:paddingBottom="15dp"
                     android:elevation="3dp"
                     android:id="@+id/framex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="?attr/cardBackground"
+                    android:background="?attr/backgroundColor"
                     >
 
-                    <ImageView
-                        android:contentDescription="@string/cnt_desp"
+                    <androidx.cardview.widget.CardView
+                        android:layout_centerHorizontal="true"
+                        app:cardPreventCornerOverlap="false"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="15dp"
                         android:id="@+id/lineal"
-                        android:orientation="vertical"
-                        android:background="@drawable/real_bg"
+                        android:elevation="0dp"
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"/>
+                        android:layout_height="130dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                        <ImageView
+                            android:elevation="0dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/real_bg"
+                            android:scaleType="centerCrop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/event_profilePic"
+                            android:clickable="false"
+                            />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:contentDescription="@string/cnt_desp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginBottom="5dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_below="@id/lineal"
-                            android:layout_marginTop="-65dp"
+                            android:layout_marginTop="-70dp"
                             android:id="@+id/user_profile_pic"
                             android:layout_width="120dp"
                             android:layout_height="120dp"
-                            android:elevation="4dp"
+                            android:elevation="2dp"
                             android:src="@drawable/amir"
                             app:civ_border_color="#efefee"
                             app:civ_border_width="4dp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_edit_black_24dp"
-                        android:layout_toRightOf="@id/user_profile_pic"
-                        />
-
 
                     <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_centerHorizontal="true"
                         android:textSize="20sp"
                         android:fontFamily="@font/roboto"
                         android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_below="@id/user_profile_pic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -107,7 +122,8 @@
                         android:textColor="?attr/textColor"/>
 
                     <TextView
-                        android:layout_marginEnd="35dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="20dp"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp"
                         android:fontFamily="@font/roboto"
@@ -119,7 +135,9 @@
                         android:text="National Institute Of Technology, Srinagar"/>
 
                     <TextView
-                        android:layout_marginEnd="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="20dp"
                         android:textColor="?attr/textColor"
                         android:textSize="15sp"
                         android:fontFamily="@font/roboto"
@@ -269,6 +287,7 @@
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:elevation="4dp"
             android:background="?attr/backgroundColor"
             app:itemTextColor="@drawable/bottom_nav_selector"
             app:itemIconTint="@drawable/bottom_nav_selector"
@@ -289,13 +308,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorPrimaryDarkx"
+        android:background="?attr/backgroundColor"
         app:menu="@menu/main_menu"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"
+        app:itemTextColor="?attr/textColor"
+        app:itemIconTint="?attr/textColor"
         android:theme="@style/NavigationViewHorizontalLineColor"
-        app:headerLayout="@layout/drawer_header">
-
-    </com.google.android.material.navigation.NavigationView>
+        app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

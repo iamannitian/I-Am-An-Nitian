@@ -7,6 +7,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <color name="textColor1">#515151</color>
+    <color name="textColor2">#A3A2A2</color>
+
     <!--============ Colors Used in Splash Screen ====================-->
     <color name="bg_color">#088DE6</color>
     <color name="main">#F44336</color>
@@ -19,7 +22,7 @@
 
 
     <!--============ Color used in navigation drawer ====================-->
-    <color name="navigationHorizontalLineColor">#3BFFFFFF</color>
+    <color name="navigationHorizontalLineColor">#3BBCBCBC</color>
     <!--============ Color used in bottom navigation drawer ====================-->
     <color name="navigation_background">@color/colorPrimary</color>
 
