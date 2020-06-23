@@ -6,31 +6,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import static android.view.View.GONE;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView bottomNavigationView;
     private View notificationBadge;
     private SwitchCompat switchCompat;
+
+    private ViewPager viewPager;
+    private ViewPagerAdapter adapter;
+    int currentPage = 0;
+    final long DELAYS_MS = 500;
+    final long PERIOD_MS = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -62,7 +69,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
-        switchCompat = (SwitchCompat) navigationView
+
+
+        //Slider
+        viewPager = findViewById(R.id.viewPager);
+        adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+
+        final Handler handler = new Handler();
+        final Runnable update = new Runnable() {
+            @Override
+            public void run() {
+                if(currentPage == 6)
+                    currentPage = 0;
+                viewPager.setCurrentItem(currentPage++, true);
+            }
+        };
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        }, DELAYS_MS, PERIOD_MS);
+
+
+
+               switchCompat = (SwitchCompat) navigationView
                 .getMenu()
                 .findItem(R.id.dark_mode_switch)
                 .getActionView();
@@ -122,6 +156,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headerUpdate();
         showBadge();
     }
+
+    //slider
+
+
 
     /*=======>>>>>>> Setting up toolbar menu <<<<<<<<<=========*/
     private void setUpToolbarMenu(boolean mode)

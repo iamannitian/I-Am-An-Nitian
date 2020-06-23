@@ -40,7 +40,7 @@
         <item name="strokeColor">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/windowAnimationTransition</item>
         <item name="android:textColor">#A3A2A2</item>
-        <item name="android:itemBackground">#424242</item>
+        <item name="android:itemBackground">#303030</item>
         <item name="bottomNavIconColor">#A3A2A2</item>
         <item name="bottomNavIconColorSelected">@color/colorAccent</item>
         <item name="colorPrimaryDark">?attr/backgroundColor</item>

@@ -40,34 +40,39 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-
-        <androidx.core.widget.NestedScrollView
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:fillViewport="true"
+      <androidx.core.widget.NestedScrollView
+          app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:fitsSystemWindows="true"
             android:clipToPadding="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1000dp"
-                android:orientation="vertical"
-                >
+          <androidx.cardview.widget.CardView
+              android:layout_centerHorizontal="true"
+              app:cardPreventCornerOverlap="false"
+              android:layout_margin="10dp"
+              app:cardCornerRadius="15dp"
+              android:id="@+id/lineal"
+              android:elevation="0dp"
+              android:layout_width="match_parent"
+              android:layout_height="180dp">
 
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textColor="@color/first"
-                android:textSize="35sp"
-                android:textStyle="bold"
-                 android:layout_marginLeft="130dp"
-                android:layout_marginTop="150dp"
-                />
-            </LinearLayout>
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  >
 
-        </androidx.core.widget.NestedScrollView>
+                  <androidx.viewpager.widget.ViewPager
+                      android:id="@+id/viewPager"
+                      android:layout_width="match_parent"
+                      android:layout_height="180dp"/>
+
+              </RelativeLayout>
+
+          </androidx.cardview.widget.CardView>
+
+
+      </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:background="?attr/backgroundColor"

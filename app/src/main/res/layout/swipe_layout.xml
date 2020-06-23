@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="#ff00"
+        />
+
+    <TextView
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="-60dp"
+        android:layout_below="@id/imageView"
+        android:paddingStart="20dp"
+        android:paddingEnd="35dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="NIT SXR"
+        android:id="@+id/image_count"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
+</RelativeLayout>
