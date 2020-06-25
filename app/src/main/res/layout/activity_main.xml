@@ -67,7 +67,6 @@
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       >
-
                       <androidx.viewpager.widget.ViewPager
                           android:id="@+id/viewPager"
                           android:layout_width="match_parent"
@@ -128,6 +127,17 @@
                           android:id="@+id/viewPager2"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent"/>
+
+                      <com.google.android.material.tabs.TabLayout
+                          android:layout_alignParentBottom="true"
+                          android:layout_centerHorizontal="true"
+                          app:tabGravity="center"
+                          app:tabBackground="@drawable/tab_selector"
+                          app:tabIndicatorHeight="0dp"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tabLayout"
+                          />
 
                   </LinearLayout>
 
