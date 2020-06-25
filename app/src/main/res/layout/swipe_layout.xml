@@ -5,6 +5,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<FrameLayout
+    android:background="#C3434343"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_centerHorizontal="true"
@@ -12,21 +17,22 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:background="#ff00"
         />
+
+</FrameLayout>
 
     <TextView
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto"
-        android:layout_marginTop="-60dp"
-        android:layout_below="@id/imageView"
-        android:paddingStart="20dp"
-        android:paddingEnd="35dp"
-        android:textSize="20sp"
+        android:fontFamily="@font/lato"
+        android:layout_marginTop="-55dp"
+        android:layout_below="@id/frameLayout"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="65dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:text="NIT SXR"
         android:id="@+id/image_count"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         />
 </RelativeLayout>

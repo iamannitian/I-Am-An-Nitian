@@ -42,7 +42,7 @@
         <item name="android:textColor">#A3A2A2</item>
         <item name="android:itemBackground">#303030</item>
         <item name="bottomNavIconColor">#A3A2A2</item>
-        <item name="bottomNavIconColorSelected">@color/colorAccent</item>
+        <item name="bottomNavIconColorSelected">@color/colorPrimary</item>
         <item name="colorPrimaryDark">?attr/backgroundColor</item>
         <item name="android:windowLightStatusBar"  tools:targetApi="m">false</item>
     </style>

@@ -6,14 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -43,9 +40,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private View notificationBadge;
     private SwitchCompat switchCompat;
 
-    private ViewPager viewPager;
+    private ViewPager viewPager, viewPager2;
     private ViewPagerAdapter adapter;
+    private HeadLineViewPagerAdapter adapter2;
     int currentPage = 0;
+    int currentHeadline = 0;
     final long DELAYS_MS = 500;
     final long PERIOD_MS = 3000;
 
@@ -76,11 +75,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
+        viewPager2 = findViewById(R.id.viewPager2);
+        adapter2 = new HeadLineViewPagerAdapter(this);
+        viewPager2.setAdapter(adapter2);
+
         final Handler handler = new Handler();
         final Runnable update = new Runnable() {
             @Override
             public void run() {
-                if(currentPage == 6)
+                if(currentPage == 5)
                     currentPage = 0;
                 viewPager.setCurrentItem(currentPage++, true);
             }
@@ -94,6 +97,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }, DELAYS_MS, PERIOD_MS);
 
+
+        //Timer for the headlines
+   final Runnable headline = new Runnable() {
+       @Override
+       public void run() {
+           if(currentHeadline == 5)
+               currentHeadline = 0;
+           viewPager2.setCurrentItem(currentHeadline++, true);
+       }
+   };
+
+        final Handler handler2 = new Handler();
+   new Timer().schedule(new TimerTask() {
+       @Override
+       public void run() {
+           handler2.post(headline);
+       }
+   },1000,4000);
 
 
                switchCompat = (SwitchCompat) navigationView

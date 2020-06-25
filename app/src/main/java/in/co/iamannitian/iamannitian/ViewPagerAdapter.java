@@ -24,17 +24,15 @@ public class ViewPagerAdapter extends PagerAdapter {
                   R.drawable.nittrichy,
                   R.drawable.nitrkl,
                   R.drawable.hostelx,
-                  R.drawable.bannermain,
                   R.drawable.nittrichy
                   };
 
   String str[] = {
-          "NIT Srinagar suffering from worst cyber attack",
-          "IIT Bombay touched highest placement record in 2020",
-          "Lorem ipsum is a dummy text",
-          "Are the Nitians crazy",
-          "MHRD announces 100 corores budget for NIT Trichy",
-          "IIIT Bhopal building collapsed 5 dead"
+          "NIT Srinagar suffering from worst Cyber attack",
+          "IIT Bombay touched highest placement record",
+          "Jee Mains 2020 dates announced by NAT",
+          "NIT Delhi has now its own building",
+          "MHRD announces 10 million budget for NIT Trichy"
   };
 
   private Context context;

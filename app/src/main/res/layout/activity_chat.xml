@@ -22,8 +22,8 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
             <androidx.appcompat.widget.Toolbar
-                android:layout_margin="10dp"
-                android:elevation="4dp"
+                android:layout_margin="0dp"
+                android:elevation="0dp"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
