@@ -5,27 +5,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.security.Signature;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -35,7 +34,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText email, username, password;
     private Button click_to_sign_up;
     private TextView go_to_login;
-
+    private BottomSheetDialog bottomSheetDialog;
     private ProgressDialog progressDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -162,9 +161,15 @@ public class SignupActivity extends AppCompatActivity {
                             editor.apply();
                             /*=========================== shared preferences saving user data finished ============================*/
 
-                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                           /* Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
-                            startActivity(intent);
+                            startActivity(intent);*/
+
+                           View bottomSheetView = getLayoutInflater()
+                                   .inflate(R.layout.bootm_sheet_layout,null);
+                            bottomSheetDialog = new BottomSheetDialog(SignupActivity.this, R.style.BottomSheetDialogTheme);
+                            bottomSheetDialog.setContentView(bottomSheetView);
+                            bottomSheetDialog.show();
 
                         }
                         else if(response_array[0].equals("0"))

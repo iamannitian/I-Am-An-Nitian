@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,9 @@ public class ViewPagerAdapter extends PagerAdapter {
                   R.drawable.nittrichy
                   };
 
+  private List<SlideUtils> sliderImg;
+  private ImageLoader imageLoader;
+
   String str[] = {
           "NIT Srinagar suffering from worst Cyber attack",
           "IIT Bombay touched highest placement record",
@@ -38,14 +43,16 @@ public class ViewPagerAdapter extends PagerAdapter {
   private Context context;
   private LayoutInflater layoutInflater;
 
-  public ViewPagerAdapter(Context context)
+  public ViewPagerAdapter(List<SlideUtils> sliderImg,Context context)
   {
     this.context = context;
+    this.sliderImg = sliderImg;
   }
 
   @Override
   public int getCount() {
-    return image_resources.length;
+    //return image_resources.length;
+    return  sliderImg.size();
   }
 
   @Override
@@ -59,11 +66,31 @@ public class ViewPagerAdapter extends PagerAdapter {
   public Object instantiateItem(@NonNull ViewGroup container, int position) {
     layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     View itemView = layoutInflater.inflate(R.layout.swipe_layout, container, false);
+
+    SlideUtils utils = sliderImg.get(position);
+
     ImageView imageView = itemView.findViewById(R.id.imageView);
+
+    imageLoader = HeaderVolleyRequest.getInstance(context).getImageLoader();
+    imageLoader.get(utils.getSlideImageUrl(), ImageLoader.getImageListener
+         (imageView, R.drawable.ic_image_white_24dp,android.R.drawable.ic_dialog_alert));
+
     TextView textView = itemView.findViewById(R.id.image_count);
-    imageView.setImageResource(image_resources[position]);
-    textView.setText(str[position]);
-    container.addView(itemView);
+    //imageView.setImageResource(image_resources[position]);
+    textView.setText(sliderImg.get(position).descp);
+
+
+    itemView.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public  void onClick(View view)
+        {
+            
+        }
+
+    });
+
+    ViewPager vp = (ViewPager) container;
+    vp.addView(itemView, 0);
     return itemView;
   }
 

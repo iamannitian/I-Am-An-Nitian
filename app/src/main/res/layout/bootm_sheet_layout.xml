@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bottom_sheet_shape"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bottomSheet"
+    android:padding="30dp"
+    >
+
+    <TextView
+        android:textSize="16sp"
+        android:textColor="?attr/textColor"
+        android:fontFamily="@font/roboto"
+        android:text="An OTP is sent to your email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <EditText
+            android:stateListAnimator="@null"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/hintColor"
+            android:fontFamily="@font/roboto"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:id="@+id/enterOtp"
+            android:hint="Enter OTP"
+            android:drawableStart="@drawable/otp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/myinput"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints="" />
+
+        <Button
+            android:stateListAnimator="@null"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/textColor1"
+            android:id="@+id/proceed"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/otp_button_shape"
+            android:layout_marginTop="15dp"
+            android:text="Continue"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp"
+            />
+
+</LinearLayout>

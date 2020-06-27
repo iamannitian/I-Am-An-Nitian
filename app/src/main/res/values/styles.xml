@@ -25,6 +25,7 @@
 
         <item name="bottomNavIconColor">#717171</item>
         <item name="bottomNavIconColorSelected">@color/colorPrimaryDarkx</item>
+
     </style>
 
     <!-- DarkTheme application theme. -->
@@ -45,6 +46,7 @@
         <item name="bottomNavIconColorSelected">@color/colorPrimary</item>
         <item name="colorPrimaryDark">?attr/backgroundColor</item>
         <item name="android:windowLightStatusBar"  tools:targetApi="m">false</item>
+
     </style>
 
     <!-- ===============    Hiding toolbar only   ================= -->
@@ -84,4 +86,13 @@
     <style name="ThreeDotColor" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">?attr/textColor</item>
     </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+     <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+   <item name="android:background">@android:color/transparent</item>
+    </style>
+
    </resources>

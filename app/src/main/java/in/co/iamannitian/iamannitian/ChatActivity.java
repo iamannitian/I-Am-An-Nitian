@@ -239,7 +239,7 @@ public class ChatActivity extends AppCompatActivity
     /*=======>>>>>>> restart app on clicking the switch <<<<<<<<<=========*/
     public void restartApp()
     {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), ChatActivity.class);
         startActivity(i);
         finish();
     }

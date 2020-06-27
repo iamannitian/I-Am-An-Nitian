@@ -241,7 +241,7 @@ public class NotificationActivity extends AppCompatActivity
     /*=======>>>>>>> restart app on clicking the switch <<<<<<<<<=========*/
     public void restartApp()
     {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), NotificationActivity.class);
         startActivity(i);
         finish();
     }

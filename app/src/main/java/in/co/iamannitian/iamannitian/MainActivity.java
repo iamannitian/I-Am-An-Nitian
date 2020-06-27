@@ -9,10 +9,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,11 +25,26 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -43,10 +62,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ViewPager viewPager, viewPager2;
     private ViewPagerAdapter adapter;
     private HeadLineViewPagerAdapter adapter2;
+    private TabLayout tabLayout;
+
     int currentPage = 0;
     int currentHeadline = 0;
     final long DELAYS_MS = 500;
     final long PERIOD_MS = 3000;
+
+
+    RequestQueue rq;
+    private List<SlideUtils> sliderImg;
+
+    String request_url = "https://iamannitian.co.in/app/get_slider_image.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -65,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rq = Volley.newRequestQueue(this);
+        sliderImg = new ArrayList<>();
+
         navigationView = findViewById(R.id.navigationView);
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
@@ -72,12 +102,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //Slider
         viewPager = findViewById(R.id.viewPager);
-        adapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(adapter);
 
         viewPager2 = findViewById(R.id.viewPager2);
         adapter2 = new HeadLineViewPagerAdapter(this);
         viewPager2.setAdapter(adapter2);
+
+        tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager2, true);
 
         final Handler handler = new Handler();
         final Runnable update = new Runnable() {
@@ -172,6 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        sendRequest();
         setUpToolbarMenu(mode);
         setUpDrawerMenu(mode);
         headerUpdate();
@@ -308,4 +340,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         finish();
     }
 
+    public void sendRequest()
+    {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,
+                request_url, null, new Response.Listener<JSONArray>() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onResponse(JSONArray response) {
+
+               // Log.e("<<<<<<<<<<<<=====================>>>>>>>>>\n",response.toString());
+
+                for(int i=0; i< response.length(); i++)
+                {
+                   SlideUtils slideUtils = new SlideUtils();
+                   try{
+                       JSONObject object = response.getJSONObject(i);
+                       slideUtils.setSlideImageUrl
+                               ("https://iamannitian.co.in/images/"+object.getString("url"));
+                       slideUtils.setDescp(object.getString("descp"));
+
+                   }
+                   catch(JSONException ex)
+                   {
+                       ex.printStackTrace();
+                   }
+                  sliderImg.add(slideUtils);
+                }
+
+                adapter = new ViewPagerAdapter(sliderImg,MainActivity.this);
+                viewPager.setAdapter(adapter);
+            }
+
+        }, new Response.ErrorListener() { //error
+            @Override
+            public void onErrorResponse(VolleyError error) {
+              error.printStackTrace();
+            }
+        });
+
+        HeaderVolleyRequest.getInstance(this).addToRequestQueue(jsonArrayRequest);
+    }
 }
