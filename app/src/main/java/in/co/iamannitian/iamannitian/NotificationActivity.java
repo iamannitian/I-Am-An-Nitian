@@ -98,6 +98,10 @@ public class NotificationActivity extends AppCompatActivity
                     case R.id.notification:
                         //do nothing
                         break;
+                    case R.id.feed:
+                        startActivity(new Intent(NotificationActivity.this, FeedActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
                     case R.id.chat:
                         startActivity(new Intent(NotificationActivity.this, ChatActivity.class));
                         overridePendingTransition(0,0);
