@@ -98,6 +98,10 @@ public class ProfileActivity extends AppCompatActivity
                         startActivity(new Intent(ProfileActivity.this, NotificationActivity.class));
                         overridePendingTransition(0,0);
                         break;
+                    case R.id.feed:
+                        startActivity(new Intent(ProfileActivity.this, FeedActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
                     case R.id.chat:
                         startActivity(new Intent(ProfileActivity.this, ChatActivity.class));
                         overridePendingTransition(0,0);

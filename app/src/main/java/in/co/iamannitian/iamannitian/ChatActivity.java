@@ -102,6 +102,10 @@ public class ChatActivity extends AppCompatActivity
                     case R.id.chat:
                         //do nothing
                         break;
+                    case R.id.feed:
+                        startActivity(new Intent(ChatActivity.this, FeedActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
                     case R.id.profile:
                         startActivity(new Intent(ChatActivity.this, ProfileActivity.class));
                         overridePendingTransition(0,0);

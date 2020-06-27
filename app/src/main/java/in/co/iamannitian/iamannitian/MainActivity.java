@@ -106,6 +106,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         startActivity(new Intent(MainActivity.this, ChatActivity.class));
                         overridePendingTransition(0,0);
                         break;
+
+                    case R.id.feed:
+                        startActivity(new Intent(MainActivity.this, FeedActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
                     case R.id.profile:
                         startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                         overridePendingTransition(0,0);
