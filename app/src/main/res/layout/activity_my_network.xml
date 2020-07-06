@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#E9EFF4">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardBackgroundColor="#EDF4FA"
+            app:cardElevation="4dp"
+            android:layout_weight="0"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage my network"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/nexticon"
+                android:layout_gravity="end"
+                android:layout_marginTop="15dp"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="#F8F7F7"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suggestions For You"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:columnCount="2"
+            android:rowCount="6"
+            android:padding="8dp"
+            android:layout_weight="10"
+
+            android:alignmentMode="alignMargins"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="5dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="30dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#F7E8FA" />
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/girl"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#FAF0F0" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="6dp"
+
+                android:layout_marginTop="30dp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#EAF8F6" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy_a"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#F7FAF0" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy_b"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="30dp"
+
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#E7FAE9" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/girl_a"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#FAF2F0" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy_c"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="6dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#F7E8FA" />
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/girl"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#FAF0F0" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="6dp"
+
+                android:layout_marginTop="30dp"
+
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#EAF8F6" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy_a"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="152dp"
+                android:layout_height="197dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:cardCornerRadius="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#F7FAF0" />
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/boy_b"
+                    android:elevation="2dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:elevation="2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginLeft="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:elevation="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="120dp"/>
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/mybutton2"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Connect"
+                    android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+        </GridLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</ScrollView>
+
