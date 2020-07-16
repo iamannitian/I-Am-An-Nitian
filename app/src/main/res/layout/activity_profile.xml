@@ -1,141 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ProfileActivity">
 
-    android:background="#ffffff">
-
-
-
-
-
-
-    <ImageView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/coverpic"
-        android:layout_marginTop="-190dp"/>
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:src="@drawable/circlepic"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="50dp"
-        android:elevation="21dp"
-        android:background="@android:color/transparent"/>
+        android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="140dp">
-        <TextView
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:background="?attr/backgroundColor"
+            app:elevation="0dp"
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Shikhar Srivastava"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:layout_marginTop="45dp"/>
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/university"
-            android:layout_marginTop="96dp"
-            android:layout_marginLeft="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_margin="0dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:titleMarginStart="6dp"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/toolbar_backgound"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                 />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fitsSystemWindows="true"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:paddingBottom="15dp"
+                    android:elevation="3dp"
+                    android:id="@+id/framex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/backgroundColor"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_centerHorizontal="true"
+                        app:cardPreventCornerOverlap="false"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="15dp"
+                        android:id="@+id/lineal"
+                        app:cardElevation="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                        <ImageView
+                            android:elevation="0dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/real_bg"
+                            android:scaleType="centerCrop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/event_profilePic"
+                            android:clickable="false"
+                            />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:contentDescription="@string/cnt_desp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/lineal"
+                            android:layout_marginTop="-70dp"
+                            android:id="@+id/user_profile_pic"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:elevation="0dp"
+                            android:src="@drawable/amir"
+                            app:civ_border_color="#efefee"
+                            app:civ_border_width="4dp" />
+
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_below="@id/user_profile_pic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shubham Maurya"
+                        android:id="@+id/user_name"
+                        android:textColor="?attr/textColor"/>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="20dp"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/nit_name"
+                        android:layout_below="@id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="National Institute Of Technology, Srinagar"/>
+
+                    <TextView
+                        android:layout_marginBottom="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="20dp"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/user_address"
+                        android:layout_below="@id/nit_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jammu &amp; Kashmir, India"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingStart="20dp"
+                    android:elevation="3dp"
+                    android:background="?attr/cardBackground"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/heading1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Education"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/nitlogo"
+                        android:layout_below="@id/heading1"
+                        android:id="@+id/nit_logo"
+                        />
+
+                    <TextView
+                        android:layout_toRightOf="@id/nit_logo"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="15sp"
+                        android:textColor="?attr/textColor"
+                        android:id="@+id/degree"
+                        android:layout_below="@id/heading1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bachelor Of Technology, Computer Science &amp; Engineering"
+                        />
+
+                    <TextView
+                        android:layout_toRightOf="@id/nit_logo"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:id="@+id/year"
+                        android:layout_below="@id/degree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2017-2021"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingStart="20dp"
+                    android:elevation="3dp"
+                    android:background="?attr/cardBackground"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/heading2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacts"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                    />
+
+                    <TextView
+                        android:textColor="?attr/textColor"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/heading2"
+                        android:id="@+id/subheading21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        />
+
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:textSize="15sp"
+                        android:textColor="?attr/textColor"
+                        android:id="@+id/email"
+                        android:layout_below="@id/subheading21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="pnssoftwares7@gmail.com"
+                        />
+
+              <View
+                  android:layout_marginTop="10dp"
+                  android:layout_marginBottom="10dp"
+                  android:id="@+id/line21"
+                  android:layout_below="@id/email"
+                  android:layout_width="150dp"
+                  android:layout_height="1dp"
+                  android:background="?attr/textColor"
+                  />
+
+                    <TextView
+                        android:textColor="?attr/textColor"
+                        android:text="Phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/subheading22"
+                        android:layout_below="@id/line21"
+                        />
+
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/textColor"
+                        android:textSize="15sp"
+                        android:id="@+id/phone"
+                        android:layout_below="@id/subheading22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91-8130512823"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:elevation="4dp"
+            android:background="?attr/backgroundColor"
+            app:itemTextColor="@drawable/bottom_nav_selector"
+            app:itemIconTint="@drawable/bottom_nav_selector"
+            app:labelVisibilityMode="labeled"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dr. B.R. Ambedkar National Institute of Technology, Jalandhar , Punjab"
-            android:layout_marginTop="96dp"
+            android:id="@+id/bottom_navigation_view"
+            app:menu="@menu/bottom_navigation_menu"
+            android:layout_gravity="bottom"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            />
 
-            android:layout_marginLeft="70dp"
-            android:textSize="20dp"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_marginTop="350dp">
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="10dp"
+        android:background="?attr/backgroundColor"
+        app:menu="@menu/main_menu"
+        app:itemTextColor="?attr/textColor"
+        app:itemIconTint="?attr/textColor"
+        android:theme="@style/NavigationViewHorizontalLineColor"
+        app:headerLayout="@layout/drawer_header"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BTech. , Instrumentation and \nControl  Engineering, 1st Year"
-            android:layout_gravity="center"
-            android:textSize="18dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="@color/black"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/nitlogo"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"/>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-
-        android:layout_marginTop="450dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="App Developer,Web Developer"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="18dp"/>
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/abouticon"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"/>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="550dp"
-        app:cardElevation="22dp">
-
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="55dp"
-            android:background="@drawable/mybutton2"
-            android:text="Connect"
-            android:textSize="18dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:layout_marginTop="-20dp"/>
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_insta"
-            android:layout_marginTop="90dp"
-            android:layout_marginLeft="45dp"/>
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/linkedin"
-            android:layout_marginTop="90dp"
-            android:layout_marginLeft="165dp"/>
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_fb"
-            android:layout_marginTop="90dp"
-            android:layout_marginLeft="285dp"/>
-    </androidx.cardview.widget.CardView>
-
-
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

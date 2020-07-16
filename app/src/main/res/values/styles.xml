@@ -1,13 +1,60 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+
+        <item name="colorPrimaryDark">?attr/backgroundColor</item>
+        <item name="android:windowLightStatusBar"  tools:targetApi="m">true</item>
+
+        <item name="android:itemBackground">#f2ffff</item>
+        <item name="android:textColor">#515151</item>
+        <item name="actionOverflowButtonStyle">@style/ThreeDotColor</item>
+
+        <!-- Dark Mode style  -->
+        <item name="backgroundColor">#f2ffff</item>
+        <item name="cardBackground">#f2ffff</item>
+        <item name="textColor">#515151</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="buttonColor">#2196f3</item>
+        <item name="hintColor">#8A8989</item>
+        <item name="iconColor">#717171</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+
+        <item name="bottomNavIconColor">#717171</item>
+        <item name="bottomNavIconColorSelected">@color/colorPrimaryDarkx</item>
+
+    </style>
+
+    <!-- DarkTheme application theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccentx</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="backgroundColor">#303030</item>
+        <item name="cardBackground">#424242</item>
+        <item name="textColor">#A3A2A2</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="hintColor">#A3A2A2</item>
+        <item name="iconColor">#A3A2A2</item>
+        <item name="strokeColor">@color/colorAccentx</item>
+        <item name="android:windowAnimationStyle">@style/windowAnimationTransition</item>
+        <item name="android:textColor">#A3A2A2</item>
+        <item name="android:itemBackground">#303030</item>
+        <item name="bottomNavIconColor">#A3A2A2</item>
+        <item name="bottomNavIconColorSelected">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#303030</item>
+        <item name="android:windowLightStatusBar"  tools:targetApi="m">true</item>
+
+    </style>
+
+    <!-- ===============    Hiding toolbar only   ================= -->
+    <style name="HideToolBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
 
     <!-- ===============    Hiding toolbar and status bar   ================= -->
     <style name="HideAppBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -17,4 +64,39 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-</resources>
+    <!-- ===============   navigation drawer horizontal line color   ================= -->
+    <style name="NavigationViewHorizontalLineColor">
+        <item name="android:listDivider">@color/navigationHorizontalLineColor</item>
+        <item name="android:textColorSecondary">@color/navigationHorizontalLineColor</item>
+    </style>
+
+    <!-- ===============  bottom  navigation view  horizontal text Size control  ================= -->
+    <style name="BottomNavigationViewTextControl" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+    <style name="windowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+
+    <!--=================== Option Menu Three dot color =====================-->
+    <style name="ThreeDotColor" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">?attr/textColor</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+     <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+   <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+
+    </style>
+
+   </resources>

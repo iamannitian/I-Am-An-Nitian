@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".OnViewPagerClick">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer1"
+            android:visibility="visible"
+            app:shimmer_base_color="@color/textColor1"
+            app:shimmer_auto_start="true"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/newImage"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/bannermain" />
+
+        <TextView
+            android:textColor="?attr/textColor"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="10dp"
+            android:text="NIt Jalandhar student placed
+             at Google Bagged 1.2 Crores"
+            android:textSize="20sp"
+            android:fontFamily="@font/work_sans_semibold"
+            android:id="@+id/newsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
