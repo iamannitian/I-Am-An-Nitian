@@ -8,9 +8,12 @@ import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 
 class HumbergerDrawable  extends DrawerArrowDrawable
 {
-    public HumbergerDrawable(Context context) {
+    public HumbergerDrawable(Context context, boolean mode) {
         super(context);
-        setColor(context.getResources().getColor(R.color.white));
+        if(mode)
+        setColor(context.getResources().getColor(R.color.textColor2));
+        else
+            setColor(context.getResources().getColor(R.color.textColor1));
     }
 
     @Override

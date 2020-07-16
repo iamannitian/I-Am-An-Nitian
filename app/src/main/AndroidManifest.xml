@@ -10,7 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".YoutubePlayer">
+
+        </activity>
+        <activity android:name=".MainNewsActivity" />
+        <activity android:name=".OnViewPagerClick" />
+        <activity
+            android:name=".NewsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".OtherDetail" />
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".ProfileActivity" />
         <activity
@@ -22,11 +31,13 @@
             android:theme="@style/HideAppBar"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".LoginOrSignupActivity" />
         <activity android:name=".ForgetPassword" />
@@ -36,8 +47,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

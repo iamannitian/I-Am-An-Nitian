@@ -3,9 +3,13 @@
     <color name="colorPrimary">#4285F4</color>
     <color name="colorPrimaryDark">#4285F4</color>
     <color name="colorPrimaryDarkx">#083378</color>
-    <color name="colorAccent">#FF6699</color>
+    <color name="colorAccentx">#FF6699</color>
+    <color name="colorAccent">@color/colorPrimaryDark</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
+    <color name="textColor1">#515151</color>
+    <color name="textColor2">#A3A2A2</color>
 
     <!--============ Colors Used in Splash Screen ====================-->
     <color name="bg_color">#088DE6</color>
@@ -13,13 +17,13 @@
     <color name="first">#673AB7</color>
     <color name="second">#ffffff</color>
     <color name="third">#00ff00</color>
-    <color name="fourth">#FFC107</color>
+    <color name="fourth">#E1A900</color>
     <color name="fifth">#C543E3</color>
     <color name="splash_msg">#ECECEC</color>
-
+    <color name="viewPagerDefaultColor">#C8C7C7</color>
 
     <!--============ Color used in navigation drawer ====================-->
-    <color name="navigationHorizontalLineColor">#3BFFFFFF</color>
+    <color name="navigationHorizontalLineColor">#3BBCBCBC</color>
     <!--============ Color used in bottom navigation drawer ====================-->
     <color name="navigation_background">@color/colorPrimary</color>
 

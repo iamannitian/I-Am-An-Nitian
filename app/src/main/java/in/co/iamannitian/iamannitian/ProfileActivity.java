@@ -40,7 +40,9 @@ public class ProfileActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         /*=========>>> Setting Up dark Mode <<<==========*/
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+
+        boolean mode = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
+        if(mode)
         {
             setTheme(R.style.DarkTheme);
         }
@@ -111,32 +113,39 @@ public class ProfileActivity extends AppCompatActivity
             }
         });
 
-        setUpToolbarMenu();
-        setUpDrawerMenu();
+        setUpToolbarMenu(mode);
+        setUpDrawerMenu(mode);
         headerUpdate();
         showBadge();
     }
 
     /*=======>>>>>>> Setting up toolbar menu <<<<<<<<<=========*/
-    private void setUpToolbarMenu()
+    private void setUpToolbarMenu(boolean mode)
     {
         toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         toolbar.setTitle("Profile");
+
         setSupportActionBar(toolbar);
         ActionBar actionBar =  getSupportActionBar();
+
+        if(mode)
+        {
+            toolbar.setTitleTextColor(getResources().getColor(R.color.textColor2));
+            actionBar.setIcon(R.drawable.app_logo_dark);
+        }
+        else
+        {
+            toolbar.setTitleTextColor(getResources().getColor(R.color.textColor1));
+            actionBar.setIcon(R.drawable.app_logo);
+        }
+
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.app_logo);
 
-        /* -- change the font family of the toolbar title -- */
-        //TextView title = (TextView) toolbar.getChildAt(0);
-
-        //title.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
     }
 
 
     /*=======>>>>>>> Setting up navigation drawer <<<<<<<<<=========*/
-    private  void setUpDrawerMenu()
+    private  void setUpDrawerMenu(boolean mode)
     {
         navigationView.setNavigationItemSelectedListener(this);
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -144,7 +153,7 @@ public class ProfileActivity extends AppCompatActivity
                 new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_drawer, R.string.close_drawer);
 
         drawerLayout.addDrawerListener(drawerToggle);
-        drawerToggle.setDrawerArrowDrawable(new HumbergerDrawable(this));
+        drawerToggle.setDrawerArrowDrawable(new HumbergerDrawable(this, mode));
         drawerToggle.syncState();
     }
 
@@ -231,7 +240,7 @@ public class ProfileActivity extends AppCompatActivity
     /*=======>>>>>>> restart app on clicking the switch <<<<<<<<<=========*/
     public void restartApp()
     {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
         startActivity(i);
         finish();
     }

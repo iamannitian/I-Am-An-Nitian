@@ -57,9 +57,9 @@
         android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:inputType="text"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:id="@+id/username"
         android:hint="@string/name_hint"
         android:drawableStart="@drawable/user"
@@ -75,9 +75,9 @@
         android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:inputType="textEmailAddress"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:id="@+id/email"
         android:hint="@string/email_hint"
         android:layout_width="match_parent"
@@ -94,9 +94,9 @@
         android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
         android:textColorHint="?attr/hintColor"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:inputType="textPassword"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:id="@+id/password"
         android:hint="@string/pass_hint"
         android:drawableStart="@drawable/lock"
@@ -110,7 +110,7 @@
 
     <Button
         android:stateListAnimator="@null"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans_semibold"
         android:textColor="@color/white"
         android:id="@+id/click_to_sign_up"
         android:layout_width="match_parent"
@@ -124,7 +124,7 @@
 
     <TextView
         android:textColor="?attr/textColor"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans_semibold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/already_memeber"
@@ -134,7 +134,7 @@
         />
 
     <TextView
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans_semibold"
         android:id="@+id/go_to_login"
         android:layout_gravity="center"
         android:layout_width="wrap_content"

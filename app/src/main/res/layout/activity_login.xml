@@ -64,17 +64,17 @@
         android:background="@drawable/myinput"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_email"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:hint="@string/email_phone_hint"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:paddingHorizontal="15dp"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:stateListAnimator="@null"
         android:textColor="?attr/textColor"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:inputType="textPassword"
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         android:drawableStart="@drawable/lock"
         android:drawablePadding="8dp"
         android:hint="@string/pass_hint"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColorHint="?attr/hintColor"
         android:paddingHorizontal="15dp"
         android:autofillHints="" />
@@ -93,7 +93,7 @@
         android:textColorHint="?attr/hintColor"
         android:textColor="?attr/textColor"
         android:onClick="forgotPassword"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans"
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,10 +103,10 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/pass_forg"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <Button
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans_semibold"
         android:stateListAnimator="@null"
         android:id="@+id/click_to_login"
         android:layout_width="match_parent"
@@ -114,21 +114,21 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/mybutton"
         android:text="@string/login"
-        android:textColor="@color/white"
+        android:textColor="@color/textColor1"
         android:textSize="16sp" />
 
-    <TextView
-        android:layout_gravity="center"
-        android:textColor="?attr/textColor"
-        android:fontFamily="@font/roboto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/not_have_account"
-        android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/work_sans_semibold"
+            android:text="@string/not_have_account"
+            android:textColor="?attr/textColor"
+            android:textSize="15sp" />
 
     <TextView
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/work_sans_semibold"
         android:id="@+id/go_to_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
