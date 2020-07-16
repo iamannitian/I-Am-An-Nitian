@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
+<<<<<<< HEAD
+=======
     android:background="?attr/backgroundColor"
+>>>>>>> upstream/master
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -732,6 +735,100 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
+<<<<<<< HEAD
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="50dp"
+        android:background="@color/colorPrimaryDark"
+        app:headerLayout="@layout/welcome_drawer_header">
+
+        <RelativeLayout
+            android:id="@+id/relLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="230dp">
+
+            <ExpandableListView
+                android:divider="@null"
+                android:groupIndicator="@null"
+                android:layout_marginBottom="45dp"
+                android:id="@+id/expandedMenu"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+
+            <LinearLayout
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/socialLayout"
+                android:weightSum="4"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgInsta"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="Insta Link"
+                    android:src="@drawable/ic_insta" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgFB"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="FB Link"
+                    android:src="@drawable/ic_fb" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgYoutube"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="YouTube Link"
+                    android:src="@drawable/ic_youtube" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imgWebpage"
+                    android:layout_width="28dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="Web Page Link"
+                    android:src="@drawable/ic_website" />
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+=======
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -745,3 +842,4 @@
         app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+>>>>>>> upstream/master
