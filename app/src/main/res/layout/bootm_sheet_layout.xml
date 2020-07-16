@@ -7,44 +7,70 @@
     android:layout_height="match_parent"
     android:id="@+id/bottomSheet"
     android:padding="30dp"
+    app:behavior_hideable="true"
     >
 
-    <TextView
-        android:textSize="16sp"
-        android:textColor="?attr/textColor"
-        android:fontFamily="@font/roboto"
-        android:text="An OTP is sent to your email"
+    <RelativeLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:stateListAnimator="@null"
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/closeBottomSheet"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_close_black_24dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/closeBottomSheet"
+            android:fontFamily="@font/work_sans_semibold"
+            android:text="An OTP is sent to your email"
+            android:textAlignment="center"
             android:textColor="?attr/textColor"
-            android:textColorHint="?attr/hintColor"
-            android:fontFamily="@font/roboto"
-            android:inputType="numberDecimal"
-            android:textSize="16sp"
-            android:id="@+id/enterOtp"
-            android:hint="Enter OTP"
-            android:drawableStart="@drawable/otp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingHorizontal="10dp"
-            android:background="@drawable/myinput"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            android:autofillHints="" />
+            android:textSize="16sp" />
 
-        <Button
+    </RelativeLayout>
+
+    <EditText
+        android:stateListAnimator="@null"
+        android:textColor="?attr/textColor"
+        android:textColorHint="?attr/hintColor"
+        android:fontFamily="@font/work_sans"
+        android:inputType="number"
+        android:maxLength="4"
+        android:textSize="18sp"
+        android:id="@+id/enterOtp"
+        android:hint="OTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingHorizontal="10dp"
+        android:drawableStart="@drawable/otp"
+        android:drawablePadding="9dp"
+        android:background="@drawable/myinput"
+        android:layout_marginTop="20dp"
+        android:autofillHints="" />
+
+
+    <Button
             android:stateListAnimator="@null"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textColor1"
+            android:fontFamily="@font/work_sans_semibold"
+            android:textColor="@color/white"
             android:id="@+id/proceed"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/otp_button_shape"
+            android:background="@drawable/mybutton"
             android:layout_marginTop="15dp"
             android:text="Continue"
+           android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginBottom="30dp"
             />

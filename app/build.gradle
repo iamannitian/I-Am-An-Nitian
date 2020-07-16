@@ -43,8 +43,16 @@ dependencies {
     //circular image view
     implementation 'de.hdodenhof:circleimageview:3.0.2'
 
+    //glide library to load the  images from the url
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
+    //facebook shimmer effect
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //youtube API
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+    implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'

@@ -11,14 +11,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
+import com.facebook.shimmer.Shimmer;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
+import java.util.logging.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 public class ViewPagerAdapter extends PagerAdapter {
+
+  public static final String EXTRA_URL = "imageUrl";
+  public static final String EXTRA_NEWS_TITLE = "newsTitle";
+  public static final String EXTRA_NEWS_DESCRIPTION = "newDescription";
 
   private int image_resources[] =
           {
@@ -63,28 +70,30 @@ public class ViewPagerAdapter extends PagerAdapter {
 
   @NonNull
   @Override
-  public Object instantiateItem(@NonNull ViewGroup container, int position) {
+  public Object instantiateItem(@NonNull ViewGroup container, final int position) {
     layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     View itemView = layoutInflater.inflate(R.layout.swipe_layout, container, false);
 
     SlideUtils utils = sliderImg.get(position);
 
-    ImageView imageView = itemView.findViewById(R.id.imageView);
-
+    final ImageView imageView = itemView.findViewById(R.id.imageView);
     imageLoader = HeaderVolleyRequest.getInstance(context).getImageLoader();
     imageLoader.get(utils.getSlideImageUrl(), ImageLoader.getImageListener
-         (imageView, R.drawable.ic_image_white_24dp,android.R.drawable.ic_dialog_alert));
+         (imageView,R.color.viewPagerDefaultColor,android.R.drawable.ic_dialog_alert));
 
-    TextView textView = itemView.findViewById(R.id.image_count);
+    final TextView textView = itemView.findViewById(R.id.image_count);
     //imageView.setImageResource(image_resources[position]);
     textView.setText(sliderImg.get(position).descp);
-
 
     itemView.setOnClickListener(new View.OnClickListener(){
         @Override
         public  void onClick(View view)
         {
-            
+          Intent intent =  new Intent(context, OnViewPagerClick.class);
+          SlideUtils clickedItem =  sliderImg.get(position);
+          intent.putExtra(EXTRA_URL, clickedItem.getSlideImageUrl());
+          intent.putExtra(EXTRA_NEWS_TITLE, clickedItem.getDescp());
+          context.startActivity(intent);
         }
 
     });

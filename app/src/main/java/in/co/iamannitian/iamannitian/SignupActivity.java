@@ -5,15 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,9 +23,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import java.security.Signature;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -35,6 +38,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button click_to_sign_up;
     private TextView go_to_login;
     private BottomSheetDialog bottomSheetDialog;
+
     private ProgressDialog progressDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -130,7 +134,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-  private void proceedToSignup(final String user_name,final String user_email,final String user_password)
+    private void proceedToSignup(final String user_name,final String user_email,final String user_password)
     {
         // show progress bar first
         progressDialog.setMessage("Processing...");
@@ -138,49 +142,26 @@ public class SignupActivity extends AppCompatActivity {
         // disable user interaction when progress dialog appears
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
 
-        String url = "https://iamannitian.co.in/app/signup.php";
+        String url = "https://iamannitian.co.in/app/send_otp.php";
         StringRequest sr = new StringRequest(1, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                          String response_array[] = response.split(",");
+                        String response_array[] = response.split(",");
 
                         if(response_array[0].equals("1"))
                         {
-
                             //dismiss the progress dialog when sign up successful
                             progressDialog.dismiss();
-
-                            /*=========================== shared preferences saving user data started ============================*/
-                            SharedPreferences sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("userId",response_array[1]);
-                            editor.putString("userName", response_array[2]);
-                            editor.putString("userEmail",response_array[3]);
-                            editor.apply();
-                            /*=========================== shared preferences saving user data finished ============================*/
-
-                           /* Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
-                            startActivity(intent);*/
-
-                           View bottomSheetView = getLayoutInflater()
-                                   .inflate(R.layout.bootm_sheet_layout,null);
-                            bottomSheetDialog = new BottomSheetDialog(SignupActivity.this, R.style.BottomSheetDialogTheme);
-                            bottomSheetDialog.setContentView(bottomSheetView);
-                            bottomSheetDialog.show();
-
+                            showBottomSheet();
                         }
                         else if(response_array[0].equals("0"))
                         {
                             progressDialog.dismiss();
                             //on dialog dismiss back to interaction mode
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-                            Toast.makeText(SignupActivity.this,
-                                    response_array[1], Toast.LENGTH_LONG).show();
-
+                            Toast.makeText(SignupActivity.this,"Failed to send OTP", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -207,4 +188,106 @@ public class SignupActivity extends AppCompatActivity {
         RequestQueue rq = Volley.newRequestQueue(SignupActivity.this);
         rq.add(sr);
     }
+
+    void showBottomSheet()
+    {
+        View bottomSheetView =
+                getLayoutInflater()
+                        .inflate(R.layout.bootm_sheet_layout,null);
+        bottomSheetDialog = new BottomSheetDialog(SignupActivity.this,
+                R.style.BottomSheetDialogTheme);
+        bottomSheetDialog.setCancelable(false);
+        bottomSheetDialog.setCanceledOnTouchOutside(false);
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.show();
+
+        Button send_data  = bottomSheetView.findViewById(R.id.proceed);
+        ImageView closeBottomSheet = bottomSheetView.findViewById(R.id.closeBottomSheet);
+        final EditText enterOtp = bottomSheetView.findViewById(R.id.enterOtp);
+
+        //send data with otp to verify an insertion
+        send_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //getting credentials on click the sign up button
+                String user_name = username.getText().toString().trim();
+                String user_email = email.getText().toString().trim().replaceAll("\\s+","");
+                String user_password = password.getText().toString().trim().replaceAll("\\s+","");
+                String otp = enterOtp.getText().toString().trim();
+                enterOtp.setError(null);
+                if(otp.isEmpty())
+                {
+                    enterOtp.requestFocus();
+                    enterOtp.setError("required");
+                    return;
+                }
+
+                finalSignup(user_name, user_email, user_password,otp);
+            }
+        });
+
+        closeBottomSheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+    }
+
+    void finalSignup(final String user_name, final String user_email, final  String user_password,final String otp)
+    {
+        String url = "https://iamannitian.co.in/app/signup.php";
+        StringRequest sr = new StringRequest(1, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        String response_array[] = response.split(",");
+
+                        if(response_array[0].equals("1"))
+                        {
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("appData", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("userId",response_array[1]);
+                            editor.putString("userName", response_array[2]);
+                            editor.putString("userEmail",response_array[3]);
+                            editor.apply();
+
+                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK); //finish all previous activities
+                            startActivity(intent);
+
+                        }
+                        else if(response_array[0].equals("0"))
+                        {
+                            Toast.makeText(SignupActivity.this,response_array[1], Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+              error.printStackTrace();
+            }
+        }){
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map =  new HashMap<>();
+                map.put("nameKey", user_name);
+                map.put("emailKey", user_email);
+                map.put("passwordKey", user_password);
+                map.put("codeKey", "J6T32A-Pubs7/=H~".trim());
+                map.put("otpKey", otp);
+                return map;
+            }
+        };
+
+        RequestQueue rq = Volley.newRequestQueue(SignupActivity.this);
+        rq.add(sr);
+    }
+
+
 }

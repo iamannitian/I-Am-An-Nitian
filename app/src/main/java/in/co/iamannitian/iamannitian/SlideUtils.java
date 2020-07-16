@@ -18,5 +18,10 @@ public class SlideUtils
     {
         this.descp = descp;
     }
+	
+	 public String getDescp()
+    {
+        return descp;
+    }
 
 }
