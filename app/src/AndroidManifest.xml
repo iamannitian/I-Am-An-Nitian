@@ -39,9 +39,6 @@
             </intent-filter>
 
         </activity>
-<<<<<<< HEAD:app/src/AndroidManifest.xml
-
-=======
         <activity android:name=".LoginOrSignupActivity" />
         <activity android:name=".ForgetPassword" />
         <activity android:name=".SplashScreen" />
@@ -49,7 +46,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
->>>>>>> upstream/master:app/src/main/AndroidManifest.xml
+        
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 
